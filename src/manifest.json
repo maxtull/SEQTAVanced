@@ -1,0 +1,41 @@
+{
+    "name": "SEQTA Vanced",
+    "version": "1.0.0",
+    "description": "An advanced and powerful extension that provides dark-mode and custom themes for SEQTA Learn.",
+    "manifest_version": 3,
+    "icons": {
+        "16": "images/favicon-16x16.png",
+        "32": "images/favicon-32x32.png",
+        "512": "images/logo.png"
+    },
+    "permissions": [
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.edu.au/*"
+            ],
+            "js": [
+                "main.js"
+            ],
+            "css": [
+                "css/vanced.css"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "images/*",
+                "fonts/*.ttf"
+            ],
+            "matches": [
+                "https://*.edu.au/*"
+            ],
+            "extension_ids": []
+        }
+    ],
+    "homepage_url": "https://github.com/FNLeaksAndInfo/SEQTAVanced"
+}
