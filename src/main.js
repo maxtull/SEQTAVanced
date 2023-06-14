@@ -50,6 +50,36 @@ const themePresets = [
         primary: "#ff7db8",
         secondary: "#ee2a7b",
         background: "#13060d",
+    },
+    {
+        name: "Dusk",
+        primary: "#4e4cc2",
+        secondary: "#8886ff",
+        background: "#1f1f29",
+    },
+    {
+        name: "Chirp",
+        primary: "#156fab",
+        secondary: "#1d9Bf0",
+        background: "#15202b",
+    },
+    {
+        name: "Cord",
+        primary: "#5865F2",
+        secondary: "#5865F2",
+        background: "#313338",
+    },
+    {
+        name: "Terminal",
+        primary: "#31f2b2",
+        secondary: "#65e2a1",
+        background: "#0c1327",
+    },
+    {
+        name: "Pastel",
+        primary: "#F8D5FB",
+        secondary: "#D4FDF9",
+        background: "#E2E7F7",
     }
 ];
 
