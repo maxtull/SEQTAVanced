@@ -128,7 +128,7 @@
 }
 
 .seqtavanced-branding h2 {
-    color: white !important;
+    color: var(--text) !important;
     font-weight: 700 !important;
 }
 
@@ -205,22 +205,25 @@
 :root {
     --primary: #f80ab2 !important;
     --secondary: #6ecefa !important;
+    --background: #0c0c0f !important;
+    --text: #ffffff !important;
+    --background-opacity: #ffffff05 !important;
     --blue: var(--secondary) !important;
     --green: var(--secondary) !important;
     --orange: var(--primary) !important;
     --yellow: var(--secondary) !important;
-    --theme-bg-parts: 12, 12, 14 !important;
+    --theme-bg-parts: 255, 255, 255, 0.02 !important;
     --theme-fg-parts: 255, 255, 255 !important;
     --nav-level-three: 24, 24, 26 !important;
     --nav-level-two: : #303030 !important;
-    --theme-sel-bg-parts: 50, 50, 50 !important;
+    --theme-sel-bg-parts: 255, 255, 255, 0.15 !important;
     --navy: #101010 !important;
     --theme-offset-bg: 24, 24, 26 !important;
 }
 
 .login>.auth label>input,
 #main>.notices>.notice>.contents {
-    background: #111114 !important;
+    background: var(--background-opacity) !important;
 }
 
 #main>.timetablepage>.quickbar>.wrapper:before,
@@ -250,7 +253,8 @@
 
 .dashlet-summary-homework>.summary>.subject>.item,
 .dashlet-tasks>ul>li>.preview {
-    color: rgba(255, 255, 255, 0.5) !important;
+    color: var(--text) !important;
+    opacity: 0.5 !important;
 }
 
 #main>div>div.quickbar.below.visible>div>div.meta>div.times,
@@ -268,7 +272,7 @@
 #main>.timetablepage>.quickbar[data-yiq='light'] .meta>.room,
 #main>.timetablepage>.quickbar[data-yiq='light'] .meta>.teacher,
 #main>.timetablepage>.quickbar[data-yiq='light'] .meta>.assessment {
-    color: #ffffff !important;
+    color: var(--text) !important;
     opacity: 0.5 !important;
 }
 
@@ -284,7 +288,7 @@ html {
 
 #main>.timetablepage>.quickbar>.wrapper,
 .entry {
-    background: #111114 !important;
+    background: var(--background) !important;
 }
 
 @keyframes timetable {
@@ -309,7 +313,7 @@ html {
 .legacy-root,
 #main>.goals>.student h2 {
     font-family: 'SF Text', 'roboto', sans-serif !important;
-    color: #ffffff !important;
+    color: var(--text) !important;
 }
 
 .student #menu>ul::before {
@@ -351,7 +355,7 @@ html {
 
 .notifications__notifications___3mmLY.notifications__hasItems___gXxzx>button,
 .connectedNotificationsWrapper>div>button {
-    color: #fff !important;
+    color: var(--text) !important;
     top: 10px !important;
     right: 10px !important;
 }
@@ -372,7 +376,7 @@ body::-webkit-scrollbar {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #fff !important;
+    background-color: var(--text) !important;
     border-radius: 4px !important;
 }
 
@@ -381,29 +385,40 @@ body::-webkit-scrollbar {
 }
 
 div.title {
-    color: #FFFFFF !important;
+    color: var(--text) !important;
+}
+
+#menu .nav>.back {
+    color: var(--text) !important;
+}
+
+#menu>ul>li>svg,
+#menu>ul>li.item.hasChildren.active>div>div>div>svg,
+#menu>ul>li.item.hasChildren.active>div>ul>li>svg,
+.notifications__notifications___3mmLY>button>svg {
+    color: var(--text) !important;
 }
 
 body:not(.cke_editable) {
-    color: white !important;
-    background-color: #0c0c0f !important;
-    background-image: linear-gradient(rgba(12, 12, 15, 0.85), rgba(12, 12, 15, 0.85)), var(--background) !important;
+    color: var(--text) !important;
+    background-color: var(--background) !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
 
 .defaultWelcomeWrapper {
-    background: #0c0c0f !important;
+    background: var(--background) !important;
 }
 
 .defaultWelcome>section {
-    color: white !important;
+    color: var(--text) !important;
 }
 
 #title {
     background-color: transparent !important;
     min-height: 38px !important;
+    color: var(--text) !important;
 }
 
 #toolbar {
@@ -415,12 +430,12 @@ ul.magicDelete>li.deleting {
 }
 
 .formattedText>.footer {
-    background-color: #111114 !important;
+    background-color: var(--background-opacity) !important;
 }
 
 .formattedText>.footer>.wordCount {
     opacity: 1 !important;
-    color: white !important;
+    color: var(--text) !important;
 }
 
 .formattedText>.wrapper>.cke>.cke_inner>.cke_contents {
@@ -428,32 +443,35 @@ ul.magicDelete>li.deleting {
 }
 
 #menu {
-    border-right: 0px solid #0c0c0f !important;
+    border-right: 0px solid var(--background) !important;
     background: transparent !important;
+    color: var(--text) !important;
 }
 
 #menu .sub {
-    background-color: #0c0c0e !important;
+    background-color: var(--background) !important;
     top: 0px !important;
 }
 
 #menu .nav {
-    background-color: #0c0c0f !important;
-    border-bottom: 1px solid #111114 !important;
+    background-color: var(--background) !important;
+    border-bottom: 1px solid #ffffff05 !important;
 }
 
 #content {
     background: transparent !important;
+    color: var(--text) !important;
 }
 
 #userActions {
-    background: #00000026 !important;
+    background: var(--background-opacity) !important;
     border-radius: 0px 50px 50px 0px;
 }
 
 #userActions>.details {
     opacity: 1 !important;
     text-transform: none !important;
+    color: var(--text) !important;
 }
 
 #main>.dashboard {
@@ -465,7 +483,7 @@ ul.magicDelete>li.deleting {
 }
 
 #main>.dashboard>.dashlet {
-    background: #111114 !important;
+    background: var(--background-opacity) !important;
 }
 
 #main>.timetablepage>.quickbar {
@@ -473,29 +491,29 @@ ul.magicDelete>li.deleting {
 }
 
 .dashlet-notes>ul>li:hover {
-    background: #ffffff05 !important;
+    background: var(--background-opacity) !important;
 }
 
 #menu li {
-    border-bottom: 1px solid #111114 !important;
+    border-bottom: 1px solid #ffffff05 !important;
     padding: 18px !important;
     white-space: nowrap !important;
     border-radius: 0px 20px 20px 0px !important;
 }
 
 #menu li.active {
-    color: #ffffff !important;
-    background: #ffffff05 !important;
+    color: var(--text) !important;
+    background: var(--background-opacity) !important;
 }
 
 #menu li>label {
-    color: white !important;
+    color: var(--text) !important;
     font-weight: 600 !important;
     white-space: nowrap !important;
 }
 
 #menu li:hover {
-    background: #111114 !important;
+    background: var(--background-opacity) !important;
 }
 
 #menu>ul::before {
@@ -503,11 +521,11 @@ ul.magicDelete>li.deleting {
 }
 
 #body.userHTML {
-    color: white !important;
+    color: var(--text) !important;
 }
 
 iframe.userHTML {
-    background: #111114 !important;
+    background: var(--background-opacity) !important;
 }
 
 .Avatar__Avatar___gE5kx.Avatar__staff___4gVLs {
@@ -527,7 +545,7 @@ iframe.userHTML {
 }
 
 #main>.documents>.list .title>.uiFile>.name {
-    color: white !important;
+    color: var(--text) !important;
 }
 
 #main>.documents>.list>tbody .title>a {
@@ -541,7 +559,15 @@ iframe.userHTML {
 .legacy-root option,
 .legacy-root .input {
     font-family: 'SF Text', 'roboto', sans-serif !important;
-    color: white !important;
+    color: var(--text) !important;
+}
+
+.legacy-root input::placeholder,
+.legacy-root textarea::placeholder,
+.legacy-root button::placeholder,
+.legacy-root select::placeholder,
+.legacy-root option::placeholder {
+    color: var(--text) !important;
 }
 
 .legacy-root input,
@@ -553,19 +579,20 @@ iframe.userHTML {
 }
 
 #toolbar input {
-    background: rgba(14, 14, 14, 0.5) !important;
+    background: var(--background-opacity) !important;
 }
 
+.dailycal>.content>.wrapper>.days>tbody>tr>td>.entriesWrapper>.entry[data-yiq='light'],
 .dailycal>.content>.wrapper>.days>tbody>tr>td>.entriesWrapper>.entry[data-yiq='dark'] {
-    color: #fff !important;
+    color: var(--text) !important;
 }
 
 .notifications__notifications___3mmLY.notifications__shown___1kPoT>button {
-    background-color: #111114 !important;
+    background-color: var(--background-opacity) !important;
 }
 
 #main>.settings>.password>.field>label {
-    color: #fff !important;
+    color: var(--text) !important;
 }
 
 #main>.reports {
@@ -579,7 +606,7 @@ iframe.userHTML {
 
 #main>.reports>.item>.report>.year,
 #main>.reports>.item>.report>.term {
-    background: #0c0c0f !important;
+    background: var(--background) !important;
 }
 
 #main>.reports>.item>.report>.date {
@@ -596,63 +623,64 @@ iframe.userHTML {
 
 .legacy-root button,
 .legacy-root a {
-    background-color: #111114 !important;
+    background-color: var(--background-opacity) !important;
 }
 
 .notifications__list___rp2L2 {
-    border: 4px solid #0c0c0f !important;
-    background: #111114 !important;
+    border: 4px solid var(--background) !important;
+    background: var(--background-opacity) !important;
 }
 
 .notifications__actions___1UX7r {
-    background: #111114 !important;
+    background: var(--background) !important;
 }
 
 .notifications__items___2hCdv {
-    border-bottom: solid 1px #383838 !important;
+    border-bottom: solid 1px #ffffff05 !important;
+    background: var(--background) !important;
 }
 
 .dashlet-notes>ul {
-    background: #111114 !important;
+    background: var(--background-opacity) !important;
 }
 
 .body.userHTML {
-    color: #fff !important;
+    color: var(--text) !important;
 }
 
 .body>userHTML {
-    color: #fff !important;
+    color: var(--text) !important;
 }
 
 html {
-    color: white !important;
-}
-
-#html {
-    color: white !important;
-}
-
-.html {
-    color: white !important;
+    filter: saturate(1.3) !important;
+    color: var(--text) !important;
 }
 
 body {
-    color: #fff !important;
-    filter: saturate(1.3) !important;
+    color: var(--text) !important;
     transition: width 100ms !important;
     transition-timing-function: ease !important;
 }
 
+#html {
+    color: var(--text) !important;
+}
+
+.html {
+    color: var(--text) !important;
+}
+
 .userHTML {
-    color: #fff !important;
+    color: var(--text) !important;
 }
 
 #userHTML {
-    color: #fff !important;
+    color: var(--text) !important;
 }
 
 a:not(.resource) {
-    color: #fff !important;
+    color: var(--text) !important;
 }
 
 .login {
@@ -676,7 +704,7 @@ a:not(.resource) {
 }
 
 .dailycal>.content>.wrapper>.days>tbody>tr>td>.entriesWrapper>.entry {
-    background: rgb(12, 12, 15) !important;
+    background: var(--background) !important;
     border: solid 1px transparent !important;
     border-image: linear-gradient(45deg, var(--secondary), var(--primary)) 1 !important;
 }
@@ -700,7 +728,7 @@ a:not(.resource) {
 }
 
 .LabelList__LabelList___2RJFf>li.LabelList__selected___3Egk7 {
-    background: #111114 !important;
+    background: var(--background-opacity) !important;
 }
 
 .MessageList__MessageList___3DxoC {
@@ -708,15 +736,19 @@ a:not(.resource) {
 }
 
 .MessageList__MessageList___3DxoC>ol>li.MessageList__selected___1SJNz {
-    background: #ffffff05 !important;
+    background: var(--background-opacity) !important;
 }
 
 ul.buttonChecklist li.checked {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M9 16.172l10.594-10.594 1.406 1.406-12 12-5.578-5.578 1.406-1.406z"/></svg>') !important;
 }
 
-.legacy-root input.singleSelect {
+input.singleSelect {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M6.984 9.984h10.031l-5.016 5.016z"/></svg>') !important;
+}
+
+.legacy-root ul.singleSelect {
+    background: var(--background) !important;
 }
 
 .legacy-root button.depressed,
@@ -1040,7 +1072,7 @@ code.element {
 }
 
 .cke_toolbox {
-    background-color: #0c0c0f !important;
+    background-color: var(--background) !important;
 }
 
 .uiSlidePane>.pane>.header {
@@ -1048,26 +1080,26 @@ code.element {
 }
 
 .uiSlidePane>.pane {
-    background-color: #0c0c0e !important;
+    background-color: var(--background) !important;
 }
 
 .dashlet-pastoral>.items>table>tbody>tr:hover {
-    background: #ffffff05 !important;
+    background: var(--background-opacity) !important;
 }
 
 .programmeNavigator>.navigator>.week>.lessons>.lesson:hover {
-    background: #ffffff05 !important;
+    background: var(--background-opacity) !important;
 }
 
 .programmeNavigator>.navigator>.week>.lessons>.lesson.selected {
-    background: #ffffff05 !important;
+    background: var(--background-opacity) !important;
 }
 
 #main>.course>.content>h1,
 #main>.course>.content>.outline>h2,
 #main>.course>.content>.homework>h2,
 #main>.course>.content>.homework>.content {
-    color: #ffffff !important;
+    color: var(--text) !important;
 }
 
 .Canvas__canvas___OBdCZ {
@@ -1075,13 +1107,22 @@ code.element {
 }
 
 .dashlet-pastoral>.items>table>tbody>tr>td>.details {
-    color: rgba(255, 255, 255, 0.5) !important;
+    color: var(--text) !important;
+    opacity: 0.5 !important;
 }
 
 #main>.assessmentsWrapper>.message {
-    background: #ffffff05 !important;
+    background: var(--background-opacity) !important;
 }
 
 .SelectedAssessment__SelectedAssessment___3Bu5D>.SelectedAssessment__meta___1gq_y>.SelectedAssessment__due___gaPre {
-    background: #ffffff05 !important;
+    background: var(--background-opacity) !important;
+}
+
+#main>.notices>.notice {
+    background: var(--background-opacity) !important;
+}
+
+.Message__Message___3oJaU>.uiFrameWrapper .iframeWrapper {
+    background: transparent !important;
 }
