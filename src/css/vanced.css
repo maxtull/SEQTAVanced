@@ -121,6 +121,17 @@
     margin: 0 !important;
 }
 
+.seqtavanced-branding h2 {
+    color: white !important;
+    font-weight: 700 !important;
+}
+
+.seqtavanced-legal {
+    opacity: 0.5 !important;
+    font-size: smaller !important;
+    padding: 0 0 24px !important;
+}
+
 #main>.settings>.seqtavanced-settings>.theme {
     margin: 4px 0 0 !important;
     display: flex !important;
@@ -934,10 +945,6 @@ code.element {
 
 .AlertManager__Alert___3HkTM>button.AlertManager__action___3umRR {
     color: var(--secondary) !important;
-}
-
-.notifications__notifications___3mmLY.notifications__hasItems___gXxzx>button {
-    background: var(--secondary) !important;
 }
 
 .notifications__notifications___3mmLY>button>.notifications__bubble___1EkSQ {

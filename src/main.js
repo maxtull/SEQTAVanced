@@ -45,11 +45,16 @@ document.addEventListener("load", function () {
                                 <a href="${chrome.runtime.getManifest().homepage_url}" target="_blank">
                                     <img src="${chrome.runtime.getURL("images/logo.png")}" height="65px" width="65px"></img>
                                 </a>
-                                <div class="seqtavanced-version">
+                                <div>
                                     <h2>SEQTA Vanced</h2>
                                     <div class="label">Version ${chrome.runtime.getManifest().version} • Created by Max</div>
                                 </div>
                             </div>
+                            <p class="seqtavanced-legal">
+                            This extension is not affiliated with SEQTA or Education Horizons.
+                            <br>
+                            All trademarks referenced herein are the properties of their respective owners.
+                            </p>
                             <h2>Theme Settings</h2>
                             <div class="theme">
                                 <label>Primary Theme</label>
