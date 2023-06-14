@@ -575,7 +575,7 @@ iframe.userHTML {
 .legacy-root textarea,
 .legacy-root .input,
 .legacy-root select {
-    border: solid 1px rgba(var(--theme-fg-parts), 0.1) !important;
+    border: solid 1px var(--background-opacity) !important;
     border-radius: 4px !important;
 }
 

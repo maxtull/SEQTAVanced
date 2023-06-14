@@ -1,0 +1,45 @@
+html,
+body {
+    font-family: 'SF Text', 'Roboto', sans-serif !important;
+    color: black;
+    background-color: transparent !important;
+}
+
+body:not(.cke_editable) {
+    font-family: 'SF Text', 'Roboto', sans-serif !important;
+}
+
+a:not(.resource) {
+    color: var(--primary) !important;
+}
+
+blockquote.forward>.preamble>.date>.value,
+blockquote.forward>.preamble>.sender>.value {
+    color: rgba(0, 0, 0, 0.9) !important;
+}
+
+blockquote.forward>.preamble>.date>.label,
+blockquote.forward>.preamble>.sender>.label {
+    color: rgba(0, 0, 0, 0.7) !important;
+}
+
+table {
+    background-color: transparent !important;
+}
+
+td {
+    color: #000000 !important;
+}
+
+table,
+td {
+    border: 0px solid transparent !important;
+}
+
+.userHTML>div:first-of-type {
+    background-color: transparent !important;
+}
+
+blockquote.forward>.preamble {
+    background: rgb(255, 255, 255, 0.1) !important;
+}

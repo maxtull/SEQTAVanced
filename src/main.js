@@ -133,7 +133,7 @@ document.addEventListener("load", function () {
                             const link = document.createElement("link");
                             link.rel = "stylesheet";
                             link.type = "text/css";
-                            link.href = chrome.runtime.getURL("css/userhtml.css");
+                            link.href = chrome.runtime.getURL(useDark(document.body.style.getPropertyValue("--background")) ? "css/userhtml.css" : "css/userhtml_light.css");
                             node.contentDocument.head.appendChild(link);
                         };
 
