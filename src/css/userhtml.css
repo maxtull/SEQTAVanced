@@ -1,0 +1,13 @@
+html,
+body {
+    font-family: 'SF Text', 'Roboto', sans-serif !important;
+    color: white;
+}
+
+body:not(.cke_editable) {
+    font-family: 'SF Text', 'Roboto', sans-serif !important;
+}
+
+a:not(.resource) {
+    color: var(--primary) !important;
+}

@@ -30,8 +30,8 @@
   - Modern UI
     - Clean Colours
   - Custom Themes
-    - Backgrounds
     - Colours
+    - Backgrounds
 
 # Install
 Coming Soon

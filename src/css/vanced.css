@@ -94,6 +94,67 @@
     padding: 0 5px 0 5px;
 }
 
+.seqtavanced-settings {
+    margin: 0 0 48px;
+}
+
+.seqtavanced-settings>.seqtavanced-branding>a {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+}
+
+.seqtavanced-branding {
+    display: flex !important;
+    align-items: center !important;
+    padding-right: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+.seqtavanced-branding img {
+    margin-right: 8px !important;
+}
+
+.seqtavanced-branding h2,
+.seqtavanced-branding .label {
+    margin: 0 !important;
+}
+
+#main>.settings>.seqtavanced-settings>.theme {
+    margin: 4px 0 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+#main>.settings>.seqtavanced-settings>.theme>label {
+    display: inline-block !important;
+    margin: 0 1ex 0 0 !important;
+    padding: 0 !important;
+    vertical-align: middle !important;
+}
+
+#main>.settings>.seqtavanced-settings>.theme>.color {
+    display: flex;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    width: 20px;
+    height: 20px;
+    border: solid 2px #ddd;
+    border-radius: 20px;
+}
+
+#main>.settings>.seqtavanced-settings>.theme>.color>.selector {
+    margin-left: 8px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 56px;
+    height: 56px;
+    border: none !important;
+}
+
 :root {
     --primary: #f80ab2 !important;
     --secondary: #6ecefa !important;
@@ -598,4 +659,328 @@ a:not(.resource) {
 
 .MessageList__MessageList___3DxoC>ol>li.MessageList__selected___1SJNz {
     background: #ffffff05 !important;
+}
+
+ul.buttonChecklist li.checked {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M9 16.172l10.594-10.594 1.406 1.406-12 12-5.578-5.578 1.406-1.406z"/></svg>') !important;
+}
+
+.legacy-root button.depressed,
+.legacy-root button.toggled {
+    background: var(--secondary) !important;
+}
+
+.uiFile.rows.restricted {
+    box-shadow: inset 0 0 0 1px var(--primary) !important;
+}
+
+.forumList .forums .item.unread {
+    box-shadow: inset 8px 0 0 var(--secondary) !important;
+}
+
+.forumView .siteGreeting {
+    background: var(--secondary) !important;
+}
+
+.forumView>.messages>.thread>.message.unread::after,
+.forumView>.messages>.thread>.comments>.comment.unread::after {
+    background: var(--secondary) !important;
+}
+
+.forumView>.messages>.thread.banned>.message>.header>.name::after,
+.forumView>.messages>.thread>.comments>.comment.banned>.header>.name::after {
+    background: var(--primary) !important;
+}
+
+.mangleEditor>.expression>.keyword {
+    border-color: var(--secondary) !important;
+}
+
+.mangleEditor>.expression>.operator {
+    border-color: var(--primary) !important;
+}
+
+.mangleEditor>.expression>.type {
+    border-color: var(--secondary) !important;
+}
+
+.folioViewer>.current>.header>.tags>li:hover,
+.folioViewer>.current>.header>.author:hover {
+    color: var(--secondary) !important;
+}
+
+.folioViewer>.pane>.filters>.tags>li>.delete:hover,
+.folioViewer>.pane>.filters>.author>.delete:hover {
+    color: var(--primary) !important;
+}
+
+.strengthMeter>.score-0 {
+    background-color: var(--primary) !important;
+}
+
+.strengthMeter>.score-1 {
+    background-color: var(--primary) !important;
+}
+
+.strengthMeter>.score-2 {
+    background-color: var(--secondary) !important;
+}
+
+.strengthMeter>.score-3 {
+    background-color: var(--secondary) !important;
+}
+
+.strengthMeter>.score-4 {
+    background-color: var(--secondary) !important;
+}
+
+.roomSelectWrapper>.container>.singleSelect.overlay {
+    background-color: var(--secondary) !important;
+}
+
+.roomSelectWrapper>.container>input:hover+.singleSelect.overlay,
+.roomSelectWrapper>.container>.singleSelect.overlay:hover {
+    background-color: var(--secondary) !important;
+}
+
+.roomSelectWrapper.used>.container>.singleSelect.overlay {
+    background-color: var(--primary) !important;
+}
+
+.roomSelectWrapper.used>.container>input:hover+.singleSelect.overlay,
+.roomSelectWrapper.used>.container>.singleSelect.overlay:hover {
+    background-color: var(--primary) !important;
+}
+
+ul.roomSelect.singleSelect>li:not(.used)>.extra {
+    background-color: var(--secondary) !important;
+}
+
+ul.roomSelect.singleSelect>li.used>.extra {
+    background-color: var(--primary) !important;
+}
+
+#main>.folioEditor>.list>.item.unpublished {
+    box-shadow: inset 4px 0 0 var(--primary) !important;
+}
+
+.settings .password>.passwordContainer>.passwordStrength .strengthMeter>.score-0 {
+    background-color: var(--primary) !important;
+}
+
+.settings .password>.passwordContainer>.passwordStrength .strengthMeter>.score-1 {
+    background-color: var(--primary) !important;
+}
+
+.settings .password>.passwordContainer>.passwordStrength .strengthMeter>.score-2 {
+    background-color: var(--secondary) !important;
+}
+
+.settings .password>.passwordContainer>.passwordStrength .strengthMeter>.score-3 {
+    background-color: var(--secondary) !important;
+}
+
+.settings .password>.passwordContainer>.passwordStrength .strengthMeter>.score-4 {
+    background-color: var(--secondary) !important;
+}
+
+#main>.timetablepage>.container>.dailycal>.content>.wrapper>.days>tbody>tr>td>.entriesWrapper>.entry>.room.changed,
+.dashlet-timetable>.dailycal>.content>.wrapper>.days>tbody>tr>td>.entriesWrapper>.entry>.room.changed {
+    color: var(--primary) !important;
+}
+
+.AcademicResult__cohort___30a_N>li.AcademicResult__min___yqATL {
+    --indicator-colour: var(--secondary) !important;
+}
+
+.AcademicResult__cohort___30a_N>li.AcademicResult__max___2uG44 {
+    --indicator-colour: var(--secondary) !important;
+}
+
+.AcademicResult__cohort___30a_N>li.AcademicResult__avg___32fX6 {
+    --indicator-colour: var(--secondary) !important;
+}
+
+.Thermoscore__Thermoscore___2tWMi>.Thermoscore__marker___1tzy2.Thermoscore__min___JRnKg {
+    --fill-colour: var(--secondary) !important;
+}
+
+.Thermoscore__Thermoscore___2tWMi>.Thermoscore__marker___1tzy2.Thermoscore__avg___3y1Xg {
+    --fill-colour: var(--secondary) !important;
+}
+
+.Thermoscore__Thermoscore___2tWMi>.Thermoscore__marker___1tzy2.Thermoscore__max___34Oi0 {
+    --fill-colour: var(--secondary) !important;
+}
+
+code.class {
+    border-bottom: 2px solid var(--secondary) !important;
+}
+
+code.attribute {
+    border-bottom: 2px solid var(--secondary) !important;
+}
+
+code.property {
+    border-bottom: 2px solid var(--secondary) !important;
+}
+
+code.element {
+    border-bottom: 2px solid var(--primary) !important;
+}
+
+.InlineHelp__InlineHelp___Znuy1>button {
+    color: var(--theme-sel-bg-parts, var(--secondary)) !important;
+}
+
+.InlineHelp__InlineHelp___Znuy1>button>.InlineHelp__warn___2Ey7O {
+    color: var(--secondary) !important;
+}
+
+.MenuButton__Menu___gXTaY.MenuButton__invalid___2v83T>button {
+    box-shadow: inset 0 0 2px 1px var(--primary) !important;
+}
+
+.Toolbar__Toolbar___2pWkr>span>button.Toolbar__highlight___1bExw,
+.Toolbar__Toolbar___2pWkr button:enabled.Toolbar__highlight___1bExw {
+    border-color: var(--secondary) !important;
+}
+
+.InfoPill__InfoPill___3Z8-w.InfoPill__pre___2M0ja {
+    background: var(--secondary) !important;
+}
+
+.InfoPill__InfoPill___3Z8-w.InfoPill__post___3yxcl {
+    background: var(--secondary) !important;
+}
+
+.InfoPill__InfoPill___3Z8-w.InfoPill__late___m1S5Q {
+    background: var(--primary) !important;
+}
+
+.InfoPill__InfoPill___3Z8-w.InfoPill__official___3-Jk1 {
+    background: var(--theme-sel-bg-parts, var(--secondary)) !important;
+}
+
+.InfoPill__InfoPill___3Z8-w.InfoPill__enabled___T_cJy {
+    background: var(--secondary) !important;
+}
+
+.Notice__Notice___22LGf {
+    border-left: 8px solid var(--secondary) !important;
+}
+
+.Input__Input___3RSTI>input:invalid {
+    box-shadow: inset 0 0 2px 1px var(--primary) !important;
+}
+
+.FancyNumberInput__FancyNumberInput___18qZE.FancyNumberInput__invalid___1ThO->input {
+    box-shadow: inset 0 0 2px 1px var(--primary) !important;
+}
+
+.FancyCheckbox__FancyCheckbox___37A9I:focus-within>.FancyCheckbox__wrapper___3WyJU {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--theme-sel-bg-parts, var(--secondary)) !important;
+}
+
+.NotificationList__NotificationList___1xxC->ol>li.NotificationList__unread___1xPjl {
+    box-shadow: inset 8px 0 0 var(--secondary) !important;
+}
+
+.NotificationList__NotificationList___1xxC->ol>li.NotificationList__failed___vDvX_ {
+    color: var(--primary) !important;
+}
+
+.FileDropzone__FileDropzone___3-Wcm.FileDropzone__dragging___ufqij {
+    border-color: var(--secondary) !important;
+    background: var(--secondary) !important;
+}
+
+.FileDropzone__FileDropzone___3-Wcm.FileDropzone__dragging___ufqij>.FileDropzone__dropzone___c-aNM {
+    border-color: var(--secondary) !important;
+    color: var(--secondary) !important;
+}
+
+.FileDropzone__FileDropzone___3-Wcm .FileDropzone__message___mah5A.FileDropzone__errors___15-UX {
+    color: var(--primary) !important;
+}
+
+.StarRating__StarRating___3EIv8>.StarRating__rating___20nPy {
+    --rating-accent-colour: var(--secondary) !important;
+}
+
+.TagList__TagList___b0BfN li.TagList__year___2Iwwi {
+    border: 1px solid var(--secondary) !important;
+}
+
+.TagList__TagList___b0BfN i.TagList__year___2Iwwi {
+    background: var(--secondary) !important;
+}
+
+.TagList__TagList___b0BfN li.TagList__department___31dxp {
+    border: 1px solid var(--secondary) !important;
+}
+
+.TagList__TagList___b0BfN i.TagList__department___31dxp {
+    background: var(--secondary) !important;
+}
+
+.Textarea__Textarea___1N3q8>textarea:invalid {
+    border: 1px dashed var(--primary) !important;
+}
+
+.AlertManager__Alert___3HkTM::after {
+    background: linear-gradient(to right, var(--secondary), var(--secondary), var(--secondary), var(--primary)) !important;
+}
+
+.AlertManager__Alert___3HkTM>button.AlertManager__action___3umRR {
+    color: var(--secondary) !important;
+}
+
+.notifications__notifications___3mmLY.notifications__hasItems___gXxzx>button {
+    background: var(--secondary) !important;
+}
+
+.notifications__notifications___3mmLY>button>.notifications__bubble___1EkSQ {
+    background: var(--primary) !important;
+}
+
+.Overview__orangeSlider___2ZbEi {
+    --container-accent: var(--primary) !important;
+}
+
+.Overview__currentClass___2VI0N>div:first-child,
+.Overview__currentClass___2VI0N>div:last-child {
+    color: var(--primary) !important;
+}
+
+.StudentEngagementFields__Score___3sQDd .StudentEngagementFields__invalid___1wqom {
+    box-shadow: inset 0 0 2px 1px var(--primary) !important;
+}
+
+.AssessmentItem__EngagementTag___16Am6>svg {
+    color: var(--secondary) !important;
+}
+
+.legacy-root button:not([disabled]):focus {
+    border-color: var(--secondary) !important;
+}
+
+.legacy-root button:not([disabled]):active {
+    border-color: var(--secondary) !important;
+}
+
+.legacy-root button::after {
+    background: var(--secondary) !important;
+}
+
+.uiResultsTable table th.activeSort {
+    background-color: var(--secondary) !important;
+}
+
+.attendanceMap>.items.hoveringLayer>li>.content>.layer.hovered {
+    box-shadow: 0 0 2px 2px var(--secondary) !important;
+}
+
+.uiTable table th.sorted {
+    background: var(--secondary) !important;
 }
