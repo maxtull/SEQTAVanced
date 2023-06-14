@@ -35,11 +35,12 @@ The latest version of SEQTA Vanced can be installed from the Chrome Web Store. *
 # Install (Firefox)
 Possibly in future.
 
+
 # Screenshots
 <div align="center">
   <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/8c4a0e02-f7fb-4ae7-873e-95c94b4b5b6f" width="600">
   <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/7b6536c6-2250-4e6d-91ea-94aaa65caf45" width="600">
-  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/e1925a85-5028-4339-a84f-5ce0b7d89f73" width="600">
+  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/9a35c547-2f33-4a0d-a51f-e4a93d7f90c8" width="600">
 </div>
 
 # Legal
