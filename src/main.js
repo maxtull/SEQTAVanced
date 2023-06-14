@@ -29,7 +29,7 @@ document.addEventListener("load", function () {
             const observer = new MutationObserver(function (mutations) {
                 mutations.forEach(function (mutation) {
                     mutation.addedNodes.forEach(function (node) {
-                        if (node.className == "userHTML") {
+                        if (node?.className == "userHTML") {
                             const link = document.createElement("link");
                             link.rel = "stylesheet";
                             link.type = "text/css";
@@ -38,7 +38,7 @@ document.addEventListener("load", function () {
                         };
 
                         if (node?.className == "settings") {
-                            if (document.querySelector(".seqtavanced-settings")) return;
+                            if (document.querySelector(".settings>.seqtavanced-settings")) return;
                             const div = document.createElement("div");
                             div.className = "seqtavanced-settings";
                             div.innerHTML = `<div class="seqtavanced-branding">
@@ -57,13 +57,13 @@ document.addEventListener("load", function () {
                             </p>
                             <h2>Theme Settings</h2>
                             <div class="theme">
-                                <label>Primary Theme</label>
+                                <label>Primary Colour</label>
                                 <div class="color">
                                     <input id="primaryTheme" type="color" class="selector"></input>
                                 </div>
                             </div>
                             <div class="theme">
-                                <label>Secondary Theme</label>
+                                <label>Secondary Colour</label>
                                 <div class="color">
                                     <input id="secondaryTheme" type="color" class="selector"></input>
                                 </div>
@@ -93,6 +93,14 @@ document.addEventListener("load", function () {
                             secondaryTheme.addEventListener("change", function () {
                                 chrome.storage.local.set({ secondaryTheme: secondaryTheme.value });
                             });
+                        }
+
+                        if (node?.className == "uiButton logout") {
+                            if (document.querySelector("#userActions > .seqtavanced-settings")) return;
+                            const button = document.createElement("button");
+                            button.className = "uiButton logout seqtavanced-settings";
+                            button.innerHTML = `<a href="#?page=/settings"><img src="${chrome.runtime.getURL("images/logo.png")}" height="100%" width="100%"></img></a>`;
+                            document.querySelector("#userActions").appendChild(button);
                         }
                     });
                 });

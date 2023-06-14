@@ -98,11 +98,17 @@
     margin: 0 0 48px;
 }
 
-.seqtavanced-settings>.seqtavanced-branding>a {
+.seqtavanced-settings>.preSpaced {
+    margin: 48px 0 0 !important;
+}
+
+.seqtavanced-settings>.seqtavanced-branding>a,
+.seqtavanced-settings>a {
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
     cursor: pointer !important;
+    height: 100% !important;
 }
 
 .seqtavanced-branding {
@@ -152,7 +158,7 @@
     overflow: hidden;
     width: 20px;
     height: 20px;
-    border: solid 2px #ddd;
+    border: 1px solid rgba(var(--theme-fg-parts), 0.1);
     border-radius: 20px;
 }
 
@@ -164,6 +170,11 @@
     width: 56px;
     height: 56px;
     border: none !important;
+}
+
+#userActions>.seqtavanced-settings {
+    margin-right: 6px !important;
+    order: 1 !important;
 }
 
 :root {
