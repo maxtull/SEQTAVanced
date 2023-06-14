@@ -349,8 +349,11 @@ html {
     color: var(--secondary) !important;
 }
 
-.notifications__notifications___3mmLY.notifications__hasItems___gXxzx>button {
+.notifications__notifications___3mmLY.notifications__hasItems___gXxzx>button,
+.connectedNotificationsWrapper>div>button {
     color: #fff !important;
+    top: 10px !important;
+    right: 10px !important;
 }
 
 body::-webkit-scrollbar {
@@ -400,6 +403,7 @@ body:not(.cke_editable) {
 
 #title {
     background-color: transparent !important;
+    min-height: 38px !important;
 }
 
 #toolbar {
@@ -988,6 +992,10 @@ code.element {
 
 .notifications__notifications___3mmLY>button>.notifications__bubble___1EkSQ {
     background: var(--primary) !important;
+    width: auto !important;
+    padding: 0px 4px !important;
+    min-width: 12px !important;
+    border-radius: 20px !important;
 }
 
 .Overview__orangeSlider___2ZbEi {

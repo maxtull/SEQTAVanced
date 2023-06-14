@@ -5,6 +5,7 @@ const themePresets = [
         name: "Default",
         primary: "#f80ab2",
         secondary: "#6ecefa",
+        background: "#0c0c0f",
     },
     {
         name: "Aurora",
@@ -15,11 +16,13 @@ const themePresets = [
         name: "Tropical",
         primary: "#ff6600",
         secondary: "#ff0066",
+        background: "#030309",
     },
     {
         name: "Ocean",
         primary: "#2558b6",
         secondary: "#53c8f0",
+        background: "#060713",
     },
     {
         name: "Aqua",
@@ -40,11 +43,13 @@ const themePresets = [
         name: "Cotton Candy",
         primary: "#fed1c7",
         secondary: "#fe8dc6",
+        background: "#1c171c",
     },
     {
         name: "Roses",
         primary: "#ff7db8",
         secondary: "#ee2a7b",
+        background: "#13060d",
     }
 ];
 
@@ -78,6 +83,14 @@ document.addEventListener("load", function () {
                 document.body.style.setProperty("--primary", response.primaryTheme || themePresets[0].primary);
                 document.body.style.setProperty("--secondary", response.secondaryTheme || themePresets[0].secondary);
             });
+        });
+
+        waitForSelector('#content > div.connectedNotificationsWrapper > div > button > div').then(async () => {
+            const notifications = await fetchNotifications();
+            if (!notifications) return;
+            const notificationCount = document.getElementsByClassName("notifications__bubble___1EkSQ");
+            if (!notificationCount?.[0]) return;
+            notificationCount[0].textContent = notifications.payload.notifications.length;
         });
 
         document.addEventListener("load", function () {
@@ -200,6 +213,26 @@ document.addEventListener("load", function () {
         }, true);
     }
 }, true);
+
+async function fetchNotifications() {
+    const response = await fetch(`${location.origin}/seqta/student/heartbeat`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+        },
+        body: JSON.stringify({
+            timestamp: '1970-01-01 00:00:00.0',
+            hash: '#?page=/home',
+        }),
+    });
+
+    if (!response.ok) {
+        throw new Error(`Failed to retrieve notifications with status ${response.status}`);
+    }
+
+    const notifications = await response.json();
+    return notifications;
+}
 
 function waitForSelector(selector) {
     return new Promise((resolve) => {
