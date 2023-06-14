@@ -31,7 +31,8 @@ td {
     color: #ffffff !important;
 }
 
-table td {
+table,
+td {
     border: 0px solid transparent !important;
 }
 
