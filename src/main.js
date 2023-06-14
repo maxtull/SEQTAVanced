@@ -1,4 +1,53 @@
 var IsInitialized = false;
+
+const themePresets = [
+    {
+        name: "Default",
+        primary: "#f80ab2",
+        secondary: "#6ecefa",
+    },
+    {
+        name: "Aurora",
+        primary: "#c45bc8",
+        secondary: "#2ccebf",
+    },
+    {
+        name: "Tropical",
+        primary: "#ff6600",
+        secondary: "#ff0066",
+    },
+    {
+        name: "Ocean",
+        primary: "#2558b6",
+        secondary: "#53c8f0",
+    },
+    {
+        name: "Aqua",
+        primary: "#00ff8f",
+        secondary: "#00a1ff",
+    },
+    {
+        name: "Yellow",
+        primary: "#f9ed32",
+        secondary: "#fbb040",
+    },
+    {
+        name: "Purple",
+        primary: "#e100ff",
+        secondary: "#7f00ff",
+    },
+    {
+        name: "Cotton Candy",
+        primary: "#fed1c7",
+        secondary: "#fe8dc6",
+    },
+    {
+        name: "Roses",
+        primary: "#ff7db8",
+        secondary: "#ee2a7b",
+    }
+];
+
 document.addEventListener("load", function () {
     if (document.childNodes[1].textContent?.includes("Copyright (c) SEQTA Software") && document.title.includes("SEQTA Learn") && !IsInitialized) {
         IsInitialized = true;
@@ -26,8 +75,8 @@ document.addEventListener("load", function () {
             document.querySelector("#menu").prepend(logoElement);
 
             chrome.storage.local.get(null, function (response) {
-                document.body.style.setProperty("--primary", response.primaryTheme || "#f80ab2");
-                document.body.style.setProperty("--secondary", response.secondaryTheme || "#6ecefa");
+                document.body.style.setProperty("--primary", response.primaryTheme || themePresets[0].primary);
+                document.body.style.setProperty("--secondary", response.secondaryTheme || themePresets[0].secondary);
             });
         });
 
@@ -73,15 +122,47 @@ document.addEventListener("load", function () {
                                 <div class="color">
                                     <input id="secondaryTheme" type="color" class="selector"></input>
                                 </div>
-                            </div>`
+                            </div>
+                            <h2 class="preSpaced">Theme Presets</h2>
+                            <div class="presets">
+                            </div>
+                            `
                             node.prepend(div);
 
                             const primaryTheme = document.getElementById("primaryTheme");
                             const secondaryTheme = document.getElementById("secondaryTheme");
 
+                            const presets = document.querySelector(".presets");
+                            themePresets.forEach((preset) => {
+                                const theme = document.createElement("div");
+                                theme.className = "preset";
+
+                                const gradient = document.createElement("div");
+                                gradient.className = "preview";
+                                gradient.setAttribute("style", `background: linear-gradient(90deg, ${preset.secondary} 0%, ${preset.primary} 100%);`);
+
+                                const name = document.createElement("div");
+                                name.innerText = preset.name;
+
+                                theme.appendChild(gradient);
+                                theme.appendChild(name);
+                                presets.appendChild(theme);
+
+                                gradient.addEventListener("click", function () {
+                                    document.body.style.setProperty("--primary", preset.primary);
+                                    document.body.style.setProperty("--secondary", preset.secondary);
+
+                                    primaryTheme.value = preset.primary;
+                                    secondaryTheme.value = preset.secondary;
+
+                                    chrome.storage.local.set({ primaryTheme: preset.primary });
+                                    chrome.storage.local.set({ secondaryTheme: preset.secondary });
+                                });
+                            });
+
                             chrome.storage.local.get(null, function (response) {
-                                primaryTheme.value = response.primaryTheme || "#f80ab2";
-                                secondaryTheme.value = response.secondaryTheme || "#6ecefa";
+                                primaryTheme.value = response.primaryTheme || themePresets[0].primary;
+                                secondaryTheme.value = response.secondaryTheme || themePresets[0].secondary;
                             });
 
                             primaryTheme.addEventListener("input", function () {

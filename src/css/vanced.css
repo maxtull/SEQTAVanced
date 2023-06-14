@@ -162,6 +162,31 @@
     border-radius: 20px;
 }
 
+#main>.settings>.seqtavanced-settings>.presets {
+    gap: 16px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4px 0 0;
+}
+
+#main>.settings>.seqtavanced-settings>.presets>.preset {
+    position: relative;
+    border: 1px solid rgba(var(--theme-fg-parts), 0.1);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+#main>.settings>.seqtavanced-settings>.presets>.preset>.preview {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 4px;
+}
+
 #main>.settings>.seqtavanced-settings>.theme>.color>.selector {
     margin-left: 8px;
     position: absolute;
@@ -515,6 +540,14 @@ iframe.userHTML {
     color: white !important;
 }
 
+.legacy-root input,
+.legacy-root textarea,
+.legacy-root .input,
+.legacy-root select {
+    border: solid 1px rgba(var(--theme-fg-parts), 0.1) !important;
+    border-radius: 4px !important;
+}
+
 #toolbar input {
     background: rgba(14, 14, 14, 0.5) !important;
 }
@@ -631,15 +664,6 @@ a:not(.resource) {
 }
 
 .legacy-root {
-    font-family: 'SF Text', 'roboto', sans-serif !important;
-}
-
-.legacy-root input,
-.legacy-root textarea,
-.legacy-root button,
-.legacy-root select,
-.legacy-root option,
-.legacy-root .input {
     font-family: 'SF Text', 'roboto', sans-serif !important;
 }
 
@@ -1050,6 +1074,6 @@ code.element {
     background: #ffffff05 !important;
 }
 
-.SelectedAssessment__SelectedAssessment___3Bu5D > .SelectedAssessment__meta___1gq_y > .SelectedAssessment__due___gaPre {
+.SelectedAssessment__SelectedAssessment___3Bu5D>.SelectedAssessment__meta___1gq_y>.SelectedAssessment__due___gaPre {
     background: #ffffff05 !important;
 }
