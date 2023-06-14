@@ -4,6 +4,12 @@ document.addEventListener("load", function () {
         IsInitialized = true;
         document.querySelector("link[rel='shortcut icon']").href = chrome.runtime.getURL("images/favicon.ico");
 
+        const vancedStyles = document.createElement("link");
+        vancedStyles.rel = "stylesheet";
+        vancedStyles.type = "text/css";
+        vancedStyles.href = chrome.runtime.getURL("css/vanced.css");
+        document.head.appendChild(vancedStyles);
+
         waitForSelector('#menu').then(() => {
             const logoElement = document.createElement("div");
             logoElement.className = "seqtavanced-logo"
@@ -29,7 +35,7 @@ document.addEventListener("load", function () {
             const observer = new MutationObserver(function (mutations) {
                 mutations.forEach(function (mutation) {
                     mutation.addedNodes.forEach(function (node) {
-                        if (node?.className == "userHTML") {
+                        if (node?.className == "userHTML" || node?.className == "cke_wysiwyg_frame cke_reset") {
                             const link = document.createElement("link");
                             link.rel = "stylesheet";
                             link.type = "text/css";

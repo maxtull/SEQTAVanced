@@ -184,7 +184,7 @@
     --green: var(--secondary) !important;
     --orange: var(--primary) !important;
     --yellow: var(--secondary) !important;
-    --theme-bg-parts: 12, 12, 15 !important;
+    --theme-bg-parts: 12, 12, 14 !important;
     --theme-fg-parts: 255, 255, 255 !important;
     --nav-level-three: 24, 24, 26 !important;
     --nav-level-two: : #303030 !important;
@@ -386,7 +386,7 @@ ul.magicDelete>li.deleting {
 }
 
 .formattedText>.footer {
-    background-color: rgb(43 43 43) !important;
+    background-color: #111114 !important;
 }
 
 .formattedText>.footer>.wordCount {
@@ -404,7 +404,7 @@ ul.magicDelete>li.deleting {
 }
 
 #menu .sub {
-    background-color: #0c0c0f !important;
+    background-color: #0c0c0e !important;
     top: 0px !important;
 }
 
@@ -685,6 +685,10 @@ a:not(.resource) {
 
 ul.buttonChecklist li.checked {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M9 16.172l10.594-10.594 1.406 1.406-12 12-5.578-5.578 1.406-1.406z"/></svg>') !important;
+}
+
+.legacy-root input.singleSelect {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M6.984 9.984h10.031l-5.016 5.016z"/></svg>') !important;
 }
 
 .legacy-root button.depressed,
@@ -1001,4 +1005,43 @@ code.element {
 
 .uiTable table th.sorted {
     background: var(--secondary) !important;
+}
+
+.cke_toolbox {
+    background-color: #0c0c0f !important;
+}
+
+.uiSlidePane>.pane>.header {
+    background-color: transparent !important;
+}
+
+.uiSlidePane>.pane {
+    background-color: #0c0c0e !important;
+}
+
+.dashlet-pastoral>.items>table>tbody>tr:hover {
+    background: #ffffff05 !important;
+}
+
+.programmeNavigator>.navigator>.week>.lessons>.lesson:hover {
+    background: #ffffff05 !important;
+}
+
+.programmeNavigator>.navigator>.week>.lessons>.lesson.selected {
+    background: #ffffff05 !important;
+}
+
+#main>.course>.content>h1,
+#main>.course>.content>.outline>h2,
+#main>.course>.content>.homework>h2,
+#main>.course>.content>.homework>.content {
+    color: #ffffff !important;
+}
+
+.Canvas__canvas___OBdCZ {
+    background-color: transparent !important;
+}
+
+.dashlet-pastoral>.items>table>tbody>tr>td>.details {
+    color: rgba(255, 255, 255, 0.5) !important;
 }
