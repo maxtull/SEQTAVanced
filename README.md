@@ -13,16 +13,12 @@
     <br />
     <a href="#install">Install</a>
     ·
+    <a href="#screenshots">Screenshots</a>
+    ·
     <a href="https://github.com/fnleaksandinfo/SEQTAVanced/issues">Request Feature</a>
     ·
     <a href="https://github.com/fnleaksandinfo/SEQTAVanced/issues">Report Bug</a>
   </p>
-
-
-<p align="center">
-  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/8c4a0e02-f7fb-4ae7-873e-95c94b4b5b6f" alt="ChromeDownload" width="500">
-  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/7b6536c6-2250-4e6d-91ea-94aaa65caf45" alt="ChromeDownload" width="500">
-</p>
 </div>
 
 # Features
@@ -35,6 +31,13 @@
 
 # Install
 Coming Soon
+
+# Screenshots
+<div align="center">
+  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/8c4a0e02-f7fb-4ae7-873e-95c94b4b5b6f" width="600">
+  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/7b6536c6-2250-4e6d-91ea-94aaa65caf45" width="600">
+  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/6821f386-39f3-4230-a466-ed57504f29de" width="600">
+</div>
 
 # Legal
 *This extension is not affiliated with SEQTA or Education Horizons. All trademarks referenced herein are the properties of their respective owners.*
