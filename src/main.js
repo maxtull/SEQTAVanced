@@ -210,9 +210,9 @@ document.addEventListener("load", function () {
                                     secondaryTheme.value = preset.secondary;
                                     backgroundTheme.value = preset.background || themePresets[0].background;
 
-                                    chrome.storage.local.set({ primaryTheme: preset.primary });
-                                    chrome.storage.local.set({ secondaryTheme: preset.secondary });
-                                    chrome.storage.local.set({ backgroundTheme: preset.background });
+                                    chrome.storage.local.set({ primaryTheme: primaryTheme.value });
+                                    chrome.storage.local.set({ secondaryTheme: secondaryTheme.value });
+                                    chrome.storage.local.set({ backgroundTheme: backgroundTheme.value });
                                 });
                             });
 
