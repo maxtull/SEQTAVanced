@@ -23,21 +23,25 @@ const themePresets = [
         name: "Aqua",
         primary: "#00ff8f",
         secondary: "#00a1ff",
+        background: "#0c0c0f",
     },
     {
         name: "Yellow",
         primary: "#f9ed32",
         secondary: "#fbb040",
+        background: "#0c0c0f",
     },
     {
         name: "Purple",
         primary: "#e100ff",
         secondary: "#7f00ff",
+        background: "#0c0c0f",
     },
     {
         name: "Aurora",
         primary: "#c45bc8",
         secondary: "#2ccebf",
+        background: "#0c0c0f",
     },
     {
         name: "Cotton Candy",
@@ -77,9 +81,15 @@ const themePresets = [
     },
     {
         name: "Pastel",
-        primary: "#F8D5FB",
-        secondary: "#D4FDF9",
+        primary: "#FFB8FF",
+        secondary: "#99B2FF",
         background: "#E2E7F7",
+    },
+    {
+        name: "Sunset",
+        primary: "#6963D7",
+        secondary: "#F5A8B7",
+        background: "#FDFDFD",
     }
 ];
 
@@ -176,75 +186,117 @@ document.addEventListener("load", function () {
                             </div>
                             <h2 class="preSpaced">Theme Presets</h2>
                             <div class="presets">
-                            </div>
-                            `
+                            </div>`
                             node.prepend(div);
 
+                            const presets = document.querySelector(".presets");
                             const primaryTheme = document.getElementById("primaryTheme");
                             const secondaryTheme = document.getElementById("secondaryTheme");
                             const backgroundTheme = document.getElementById("backgroundTheme");
 
-                            const presets = document.querySelector(".presets");
-                            themePresets.forEach((preset) => {
-                                const theme = document.createElement("div");
-                                theme.className = "preset";
-
-                                const gradient = document.createElement("div");
-                                gradient.className = "preview";
-                                gradient.setAttribute("style", `background: linear-gradient(90deg, ${preset.secondary} 0%, ${preset.primary} 100%);`);
-
-                                const name = document.createElement("div");
-                                name.innerText = preset.name;
-
-                                theme.appendChild(gradient);
-                                theme.appendChild(name);
-                                presets.appendChild(theme);
-
-                                gradient.addEventListener("click", function () {
-                                    document.body.style.setProperty("--primary", preset.primary);
-                                    document.body.style.setProperty("--secondary", preset.secondary);
-                                    document.body.style.setProperty("--background", preset.background || themePresets[0].background);
-                                    changeBackground(preset.background || themePresets[0].background);
-
-                                    primaryTheme.value = preset.primary;
-                                    secondaryTheme.value = preset.secondary;
-                                    backgroundTheme.value = preset.background || themePresets[0].background;
-
-                                    chrome.storage.local.set({ primaryTheme: primaryTheme.value });
-                                    chrome.storage.local.set({ secondaryTheme: secondaryTheme.value });
-                                    chrome.storage.local.set({ backgroundTheme: backgroundTheme.value });
-                                });
-                            });
-
                             chrome.storage.local.get(null, function (response) {
+                                const userThemes = response.themePresets || [];
+                                themePresets.forEach((preset) => createThemePreset(preset));
+                                userThemes.forEach((preset) => createThemePreset(preset, true));
+
+                                const addtheme = document.createElement("div");
+                                addtheme.className = "preset";
+                                addtheme.setAttribute("style", "order: 1;");
+
+                                const add = document.createElement("div");
+                                add.className = "preview add";
+                                add.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px" fill-rule="evenodd"><path fill-rule="evenodd" d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z"/></svg>`
+
+                                addtheme.appendChild(add);
+                                presets.appendChild(addtheme);
+
+                                addtheme.addEventListener("click", function () {
+                                    const newPreset = {
+                                        name: `Preset ${userThemes.length + 1}`,
+                                        primary: primaryTheme.value,
+                                        secondary: secondaryTheme.value,
+                                        background: backgroundTheme.value
+                                    };
+
+                                    userThemes.push(newPreset);
+                                    createThemePreset(newPreset, true);
+                                    chrome.storage.local.set({ themePresets: userThemes });
+                                });
+
                                 primaryTheme.value = response.primaryTheme || themePresets[0].primary;
                                 secondaryTheme.value = response.secondaryTheme || themePresets[0].secondary;
                                 backgroundTheme.value = response.backgroundTheme || themePresets[0].background;
-                            });
 
-                            primaryTheme.addEventListener("input", function () {
-                                document.body.style.setProperty("--primary", primaryTheme.value);
-                            });
+                                primaryTheme.addEventListener("input", function () {
+                                    document.body.style.setProperty("--primary", primaryTheme.value);
+                                });
 
-                            secondaryTheme.addEventListener("input", function () {
-                                document.body.style.setProperty("--secondary", secondaryTheme.value);
-                            });
+                                secondaryTheme.addEventListener("input", function () {
+                                    document.body.style.setProperty("--secondary", secondaryTheme.value);
+                                });
 
-                            backgroundTheme.addEventListener("input", function () {
-                                changeBackground(backgroundTheme.value);
-                                document.body.style.setProperty("--background", backgroundTheme.value);
-                            });
+                                backgroundTheme.addEventListener("input", function () {
+                                    changeBackground(backgroundTheme.value);
+                                    document.body.style.setProperty("--background", backgroundTheme.value);
+                                });
 
-                            primaryTheme.addEventListener("change", function () {
-                                chrome.storage.local.set({ primaryTheme: primaryTheme.value });
-                            });
+                                primaryTheme.addEventListener("change", function () {
+                                    chrome.storage.local.set({ primaryTheme: primaryTheme.value });
+                                });
 
-                            secondaryTheme.addEventListener("change", function () {
-                                chrome.storage.local.set({ secondaryTheme: secondaryTheme.value });
-                            });
+                                secondaryTheme.addEventListener("change", function () {
+                                    chrome.storage.local.set({ secondaryTheme: secondaryTheme.value });
+                                });
 
-                            backgroundTheme.addEventListener("change", function () {
-                                chrome.storage.local.set({ backgroundTheme: backgroundTheme.value });
+                                backgroundTheme.addEventListener("change", function () {
+                                    chrome.storage.local.set({ backgroundTheme: backgroundTheme.value });
+                                });
+
+                                function createThemePreset(preset, userPreset = false) {
+                                    const presets = document.querySelector(".presets");
+                                    const theme = document.createElement("div");
+                                    theme.className = "preset";
+                                    theme.setAttribute("style", `border-color: ${preset.background};`);
+
+                                    const gradient = document.createElement("div");
+                                    gradient.className = "preview";
+                                    gradient.setAttribute("style", `background: linear-gradient(90deg, ${preset.secondary} 0%, ${preset.primary} 100%);`);
+
+                                    const name = document.createElement("div");
+                                    name.innerText = preset.name;
+
+                                    if (userPreset) {
+                                        const deletetheme = document.createElement("div");
+                                        deletetheme.className = "add delete";
+                                        deletetheme.innerHTML = `<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px">    <path d="M 14.984375 2.4863281 A 1.0001 1.0001 0 0 0 14 3.5 L 14 4 L 8.5 4 A 1.0001 1.0001 0 0 0 7.4863281 5 L 6 5 A 1.0001 1.0001 0 1 0 6 7 L 24 7 A 1.0001 1.0001 0 1 0 24 5 L 22.513672 5 A 1.0001 1.0001 0 0 0 21.5 4 L 16 4 L 16 3.5 A 1.0001 1.0001 0 0 0 14.984375 2.4863281 z M 6 9 L 7.7929688 24.234375 C 7.9109687 25.241375 8.7633438 26 9.7773438 26 L 20.222656 26 C 21.236656 26 22.088031 25.241375 22.207031 24.234375 L 24 9 L 6 9 z"/></svg>`
+                                        theme.appendChild(deletetheme);
+
+                                        deletetheme.addEventListener("click", function () {
+                                            userThemes.splice(userThemes.indexOf(preset), 1);
+                                            chrome.storage.local.set({ themePresets: userThemes });
+                                            theme.remove();
+                                        });
+                                    }
+
+                                    theme.appendChild(gradient);
+                                    theme.appendChild(name);
+                                    presets.appendChild(theme);
+
+                                    gradient.addEventListener("click", function () {
+                                        document.body.style.setProperty("--primary", preset.primary);
+                                        document.body.style.setProperty("--secondary", preset.secondary);
+                                        document.body.style.setProperty("--background", preset.background);
+                                        changeBackground(preset.background);
+
+                                        primaryTheme.value = preset.primary;
+                                        secondaryTheme.value = preset.secondary;
+                                        backgroundTheme.value = preset.background;
+
+                                        chrome.storage.local.set({ primaryTheme: primaryTheme.value });
+                                        chrome.storage.local.set({ secondaryTheme: secondaryTheme.value });
+                                        chrome.storage.local.set({ backgroundTheme: backgroundTheme.value });
+                                    });
+                                }
                             });
                         }
 

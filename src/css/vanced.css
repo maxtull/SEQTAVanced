@@ -178,7 +178,7 @@
     height: 50px;
     cursor: pointer;
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }
 
 #main>.settings>.seqtavanced-settings>.presets>.preset>.preview {
@@ -186,6 +186,26 @@
     width: 100%;
     height: 100%;
     margin-bottom: 4px;
+}
+
+#main>.settings>.seqtavanced-settings>.presets>.preset>.add {
+    fill: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main>.settings>.seqtavanced-settings>.presets>.preset>.delete {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--background-opacity);
+    border: 1px solid rgba(var(--theme-fg-parts), 0.1);
+    padding: 4px;
+    z-index: 1;
 }
 
 #main>.settings>.seqtavanced-settings>.theme>.color>.selector {
