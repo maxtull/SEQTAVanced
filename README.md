@@ -40,7 +40,7 @@ Possibly in future.
 <div align="center">
   <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/8c4a0e02-f7fb-4ae7-873e-95c94b4b5b6f" width="600">
   <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/7b6536c6-2250-4e6d-91ea-94aaa65caf45" width="600">
-  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/9a35c547-2f33-4a0d-a51f-e4a93d7f90c8" width="600">
+  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/aae3a4c1-6fe6-4152-864a-2e6e99da40b4" width="600">
 </div>
 
 # Legal
