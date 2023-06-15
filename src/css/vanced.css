@@ -569,6 +569,7 @@ iframe.userHTML {
 .legacy-root select::placeholder,
 .legacy-root option::placeholder {
     color: var(--text) !important;
+    opacity: 0.5 !important;
 }
 
 .legacy-root input,
