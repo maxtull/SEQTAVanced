@@ -1152,3 +1152,8 @@ code.element {
 .dailycal>.content>.wrapper>.days>tbody>tr>td.weekend {
     background-color: var(--background-opacity) !important;
 }
+
+.waitWindow {
+    background: var(--background) !important;
+    color: var(--secondary) !important;
+}
