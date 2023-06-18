@@ -1140,6 +1140,7 @@ code.element {
 
 #main>.assessmentsWrapper>.message {
     background: var(--background-opacity) !important;
+    color: var(--text) !important;
 }
 
 .SelectedAssessment__SelectedAssessment___3Bu5D>.SelectedAssessment__meta___1gq_y>.SelectedAssessment__due___gaPre {
