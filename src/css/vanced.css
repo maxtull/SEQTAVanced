@@ -138,6 +138,27 @@
     padding: 0 0 24px !important;
 }
 
+:root {
+    --primary: #f80ab2 !important;
+    --primary-text: #ffffff !important;
+    --secondary: #6ecefa !important;
+    --secondary-text: #ffffff !important;
+    --background: #0c0c0f !important;
+    --text: #ffffff !important;
+    --background-opacity: #ffffff05 !important;
+    --blue: var(--secondary) !important;
+    --green: var(--secondary) !important;
+    --orange: var(--primary) !important;
+    --yellow: var(--secondary) !important;
+    --theme-bg-parts: 255, 255, 255, 0.02 !important;
+    --theme-fg-parts: 255, 255, 255 !important;
+    --nav-level-three: 24, 24, 26 !important;
+    --nav-level-two: : #303030 !important;
+    --theme-sel-bg-parts: 255, 255, 255, 0.15 !important;
+    --navy: #101010 !important;
+    --theme-offset-bg: 24, 24, 26 !important;
+}
+
 #main>.settings>.seqtavanced-settings>.theme {
     margin: 4px 0 0 !important;
     display: flex !important;
@@ -181,6 +202,11 @@
     margin-bottom: 24px;
 }
 
+#main>.settings>.seqtavanced-settings>.presets>.preset>span {
+    display: flex;
+    justify-content: center;
+}
+
 #main>.settings>.seqtavanced-settings>.presets>.preset>.preview {
     border-radius: 50%;
     width: 100%;
@@ -221,25 +247,6 @@
 #userActions>.seqtavanced-settings {
     margin-right: 6px !important;
     order: 1 !important;
-}
-
-:root {
-    --primary: #f80ab2 !important;
-    --secondary: #6ecefa !important;
-    --background: #0c0c0f !important;
-    --text: #ffffff !important;
-    --background-opacity: #ffffff05 !important;
-    --blue: var(--secondary) !important;
-    --green: var(--secondary) !important;
-    --orange: var(--primary) !important;
-    --yellow: var(--secondary) !important;
-    --theme-bg-parts: 255, 255, 255, 0.02 !important;
-    --theme-fg-parts: 255, 255, 255 !important;
-    --nav-level-three: 24, 24, 26 !important;
-    --nav-level-two: : #303030 !important;
-    --theme-sel-bg-parts: 255, 255, 255, 0.15 !important;
-    --navy: #101010 !important;
-    --theme-offset-bg: 24, 24, 26 !important;
 }
 
 .login>.auth label>input,
@@ -777,6 +784,7 @@ input.singleSelect {
 .legacy-root button.depressed,
 .legacy-root button.toggled {
     background: var(--secondary) !important;
+    color: var(--secondary-text) !important;
 }
 
 .uiFile.rows.restricted {
@@ -1055,6 +1063,7 @@ code.element {
     padding: 0px 4px !important;
     min-width: 12px !important;
     border-radius: 20px !important;
+    color: var(--primary-text) !important;
 }
 
 .Overview__orangeSlider___2ZbEi {
@@ -1193,4 +1202,12 @@ ul.uiSplitButtonList,
 
 .Collapsible__Collapsible___3O8P3>.Collapsible__header___-Afvq>.Collapsible__label___3Rf7a {
     color: var(--text) !important;
+}
+
+.legacy-root input[type='checkbox'] {
+    accent-color: var(--secondary) !important;
+}
+
+#main>.goals>.student>.items>table thead td {
+    background: var(--background-opacity) !important;
 }

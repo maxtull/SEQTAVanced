@@ -1,5 +1,3 @@
-var IsInitialized = false;
-
 const themePresets = [
     {
         name: "Default",
@@ -80,6 +78,54 @@ const themePresets = [
         background: "#0c1327",
     },
     {
+        name: "AMOLED",
+        primary: "#FFFFFF",
+        secondary: "#FFFFFF",
+        background: "#000000",
+    },
+    {
+        name: "Serenity",
+        primary: "#90caf9",
+        secondary: "#42a5f5",
+        background: "#e3f2fd",
+    },
+    {
+        name: "Blush",
+        primary: "#f06292",
+        secondary: "#ec407a",
+        background: "#fce4ec",
+    },
+    {
+        name: "Sage",
+        primary: "#8bc34a",
+        secondary: "#4caf50",
+        background: "#e8f5e9",
+    },
+    {
+        name: "Amber",
+        primary: "#ffc107",
+        secondary: "#ff9800",
+        background: "#fff8e1",
+    },
+    {
+        name: "Rose Gold",
+        primary: "#ffbbbc",
+        secondary: "#ff8a80",
+        background: "#fce4ec",
+    },
+    {
+        name: "Teal",
+        primary: "#009688",
+        secondary: "#00796b",
+        background: "#e0f2f1",
+    },
+    {
+        name: "Lilac",
+        primary: "#ce93d8",
+        secondary: "#ba68c8",
+        background: "#f3e5f5",
+    },
+    {
         name: "Pastel",
         primary: "#FFB8FF",
         secondary: "#99B2FF",
@@ -90,9 +136,10 @@ const themePresets = [
         primary: "#6963D7",
         secondary: "#F5A8B7",
         background: "#FDFDFD",
-    }
+    },
 ];
 
+let IsInitialized = false;
 document.addEventListener("load", function () {
     if (document.childNodes[1].textContent?.includes("Copyright (c) SEQTA Software") && document.title.includes("SEQTA Learn") && !IsInitialized) {
         IsInitialized = true;
@@ -119,11 +166,13 @@ document.addEventListener("load", function () {
           </svg>`;
             document.querySelector("#menu").prepend(logoElement);
 
-            chrome.storage.local.get(null, function (response) {
-                document.body.style.setProperty("--primary", response.primaryTheme || themePresets[0].primary);
-                document.body.style.setProperty("--secondary", response.secondaryTheme || themePresets[0].secondary);
-                document.body.style.setProperty("--background", response.backgroundTheme || themePresets[0].background);
-                changeBackground(response.backgroundTheme || themePresets[0].background);
+            chrome.storage.local.get(null, function ({ primaryTheme, secondaryTheme, backgroundTheme }) {
+                document.body.style.setProperty("--primary", primaryTheme || themePresets[0].primary);
+                document.body.style.setProperty("--secondary", secondaryTheme || themePresets[0].secondary);
+                document.body.style.setProperty("--primary-text", useDark(primaryTheme || themePresets[0].primary) ? "#fff" : "#000");
+                document.body.style.setProperty("--secondary-text", useDark(secondaryTheme || themePresets[0].secondary) ? "#fff" : "#000");
+                document.body.style.setProperty("--background", backgroundTheme || themePresets[0].background);
+                changeBackground(backgroundTheme || themePresets[0].background);
             });
         });
 
@@ -143,7 +192,7 @@ document.addEventListener("load", function () {
                             const link = document.createElement("link");
                             link.rel = "stylesheet";
                             link.type = "text/css";
-                            link.href = chrome.runtime.getURL(useDark(document.body.style.getPropertyValue("--background")) ? "css/userhtml.css" : "css/userhtml_light.css");
+                            link.href = chrome.runtime.getURL(useDarkBackground(document.body.style.getPropertyValue("--background")) ? "css/userhtml.css" : "css/userhtml_light.css");
                             node.contentDocument.head.appendChild(link);
                         };
 
@@ -179,7 +228,7 @@ document.addEventListener("load", function () {
                                 </div>
                             </div>
                             <div class="theme">
-                                <label>Background Colour (Beta)</label>
+                                <label>Background Colour</label>
                                 <div class="color">
                                     <input id="backgroundTheme" type="color" class="selector"></input>
                                 </div>
@@ -229,10 +278,12 @@ document.addEventListener("load", function () {
 
                                 primaryTheme.addEventListener("input", function () {
                                     document.body.style.setProperty("--primary", primaryTheme.value);
+                                    document.body.style.setProperty("--primary-text", useDark(primaryTheme.value) ? "#fff" : "#000");
                                 });
 
                                 secondaryTheme.addEventListener("input", function () {
                                     document.body.style.setProperty("--secondary", secondaryTheme.value);
+                                    document.body.style.setProperty("--secondary-text", useDark(secondaryTheme.value) ? "#fff" : "#000");
                                 });
 
                                 backgroundTheme.addEventListener("input", function () {
@@ -262,7 +313,7 @@ document.addEventListener("load", function () {
                                     gradient.className = "preview";
                                     gradient.setAttribute("style", `background: linear-gradient(90deg, ${preset.secondary} 0%, ${preset.primary} 100%);`);
 
-                                    const name = document.createElement("div");
+                                    const name = document.createElement("span");
                                     name.innerText = preset.name;
 
                                     if (userPreset) {
@@ -285,6 +336,8 @@ document.addEventListener("load", function () {
                                     gradient.addEventListener("click", function () {
                                         document.body.style.setProperty("--primary", preset.primary);
                                         document.body.style.setProperty("--secondary", preset.secondary);
+                                        document.body.style.setProperty("--primary-text", useDark(preset.primary) ? "#fff" : "#000");
+                                        document.body.style.setProperty("--secondary-text", useDark(preset.secondary) ? "#fff" : "#000");
                                         document.body.style.setProperty("--background", preset.background);
                                         changeBackground(preset.background);
 
@@ -357,13 +410,22 @@ function waitForSelector(selector) {
     });
 }
 
-function useDark(bgColor) {
+function useDarkBackground(bgColor) {
     if (!bgColor) { return ''; }
     return (parseInt(bgColor.replace('#', ''), 16) > 0xffffff / 2) ? false : true;
 }
 
+function useDark(color) {
+    const hex = color.replace('#', '');
+    const c_r = parseInt(hex.substr(0, 2), 16);
+    const c_g = parseInt(hex.substr(2, 2), 16);
+    const c_b = parseInt(hex.substr(4, 2), 16);
+    const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+    return brightness < 183;
+}
+
 function changeBackground(value) {
-    const dark = useDark(value);
+    const dark = useDarkBackground(value);
     if (dark) {
         document.body.style.setProperty("color", '#ffffff !important');
         document.body.style.setProperty("--theme-sel-fg-parts", '#ffffff');
