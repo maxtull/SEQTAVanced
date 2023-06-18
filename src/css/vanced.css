@@ -628,6 +628,7 @@ iframe.userHTML {
 
 #main>.reports>.item>.report>.year,
 #main>.reports>.item>.report>.term {
+    color: var(--text) !important;
     background: var(--background) !important;
 }
 
@@ -909,6 +910,10 @@ ul.roomSelect.singleSelect>li.used>.extra {
     --indicator-colour: var(--secondary) !important;
 }
 
+.Thermoscore__Thermoscore___2tWMi {
+    --background-color: var(--background) !important;
+}
+
 .Thermoscore__Thermoscore___2tWMi>.Thermoscore__marker___1tzy2.Thermoscore__min___JRnKg {
     --fill-colour: var(--secondary) !important;
 }
@@ -1156,4 +1161,35 @@ code.element {
 .waitWindow {
     background: var(--background) !important;
     color: var(--secondary) !important;
+}
+
+.calendar.container {
+    background: var(--background) !important;
+}
+
+ul.singleSelect,
+ul.buttonChecklist,
+ul.buttonMenu,
+ul.colourButtonOptions,
+ul.uiSplitButtonList,
+.contactFormPanel {
+    border: 4px solid var(--background-opacity) !important;
+    background: var(--background) !important;
+}
+
+.forumView>.forumGreeting>.forumGreetingWrapper,
+.forumView>.messages>.thread>.message>.contents {
+    background: transparent !important;
+}
+
+.legacy-root input,
+.legacy-root textarea,
+.legacy-root select,
+.legacy-root option,
+.legacy-root .input {
+    background: var(--background) !important;
+}
+
+.Collapsible__Collapsible___3O8P3>.Collapsible__header___-Afvq>.Collapsible__label___3Rf7a {
+    color: var(--text) !important;
 }
