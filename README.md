@@ -8,7 +8,7 @@
   <h3 align="center">SEQTA Vanced</h3>
 
   <p align="center">
-    An advanced and powerful extension that provides dark-mode and custom themes for SEQTA Learn.
+    An advanced and powerful extension that provides dark-mode and custom themes for SEQTA.
     <br />
     <br />
     <a href="#install-chrome">Install</a>
@@ -28,6 +28,8 @@
   - Custom Themes
     - Colours
     - Backgrounds
+    - Presets
+  - Works with SEQTA Learn & Engage
 
 # Install (Chrome)
 The latest version of SEQTA Vanced can be installed from the Chrome Web Store. **[Click here to view.](https://chrome.google.com/webstore/detail/seqta-vanced/kekoobmbfdkempioiihnepdnapdpdaok)**
