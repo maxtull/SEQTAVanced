@@ -1,16 +1,18 @@
 html,
 body {
-    font-family: 'SF Text', 'Roboto', sans-serif !important;
     color: black;
     background-color: transparent !important;
 }
 
-body:not(.cke_editable) {
-    font-family: 'SF Text', 'Roboto', sans-serif !important;
-}
-
-a:not(.resource) {
-    color: var(--primary) !important;
+a:not(.resource),
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+table>thead {
+    color: inherit !important;
 }
 
 blockquote.forward>.preamble>.date>.value,
@@ -23,7 +25,9 @@ blockquote.forward>.preamble>.sender>.label {
     color: rgba(0, 0, 0, 0.7) !important;
 }
 
-table {
+table,
+table>thead,
+table th {
     background-color: transparent !important;
 }
 

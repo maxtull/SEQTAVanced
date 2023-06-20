@@ -141,7 +141,7 @@ const themePresets = [
 
 let IsInitialized = false;
 document.addEventListener("load", function () {
-    if (document.childNodes[1].textContent?.includes("Copyright (c) SEQTA Software") && document.title.includes("SEQTA Learn") && !IsInitialized) {
+    if (document.childNodes[1].textContent?.includes("Copyright (c) SEQTA Software") && isSEQTA(document?.title) && !IsInitialized) {
         IsInitialized = true;
         document.querySelector("link[rel='shortcut icon']").href = chrome.runtime.getURL("images/favicon.ico");
 
@@ -188,7 +188,7 @@ document.addEventListener("load", function () {
             const observer = new MutationObserver(function (mutations) {
                 mutations.forEach(function (mutation) {
                     mutation.addedNodes.forEach(function (node) {
-                        if (node?.className == "userHTML" || node?.className == "cke_wysiwyg_frame cke_reset") {
+                        if ((node?.className && node?.className?.includes("userHTML")) || node?.className == "cke_wysiwyg_frame cke_reset") {
                             const link = document.createElement("link");
                             link.rel = "stylesheet";
                             link.type = "text/css";
@@ -373,7 +373,7 @@ document.addEventListener("load", function () {
 }, true);
 
 async function fetchNotifications() {
-    const response = await fetch(`${location.origin}/seqta/student/heartbeat`, {
+    const response = await fetch(`${location.origin}/seqta/${getSEQTAEnvironment(document?.title)}/heartbeat`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
@@ -438,4 +438,14 @@ function changeBackground(value) {
         document.body.style.setProperty("--text", '#000000');
         document.body.style.setProperty("--background-opacity", '#0000001a');
     }
+}
+
+function isSEQTA(title) {
+    if (title.includes("SEQTA Learn") || title.includes("SEQTA Engage")) return true;
+    else return false;
+}
+
+function getSEQTAEnvironment(title) {
+    if (title.includes("SEQTA Engage")) return 'parent';
+    else return 'student';
 }

@@ -1211,3 +1211,20 @@ ul.uiSplitButtonList,
 #main>.goals>.student>.items>table thead td {
     background: var(--background-opacity) !important;
 }
+
+.anyoneSelect.filterBox {
+    background: transparent !important;
+}
+
+.anyoneSelect>.listWrapper>.list>.item {
+    background: var(--background-opacity) !important;
+}
+
+#main>.reports>.message {
+    background: var(--background-opacity) !important;
+    border-left: 4px solid rgb(var(--theme-sel-bg-parts));
+}
+
+.MenuButton__MenuPanel___2q42B {
+    background: var(--background) !important;
+}
