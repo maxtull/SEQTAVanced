@@ -22,20 +22,17 @@
 </div>
 
 # Features
-  - Dark Mode
-  - Modern UI
-    - Clean Colours
-  - Custom Themes
-    - Colours
-    - Backgrounds
-    - Presets
-  - Works with SEQTA Learn & Engage
+✨ Modern UI \
+🌙 Dark Mode \
+🎨 Custom Themes \
+💻 Works with SEQTA Learn & Engage \
+✅ Open-Source 
 
 # Install (Chrome)
 The latest version of SEQTA Vanced can be installed from the Chrome Web Store. **[Click here to view.](https://chrome.google.com/webstore/detail/seqta-vanced/kekoobmbfdkempioiihnepdnapdpdaok)**
 
 # Install (Firefox)
-Possibly in future.
+Planned for future.
 
 # Screenshots
 <div align="center">
