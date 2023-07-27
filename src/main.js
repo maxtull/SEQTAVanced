@@ -194,6 +194,9 @@ document.addEventListener("load", function () {
                             link.type = "text/css";
                             link.href = chrome.runtime.getURL(useDarkBackground(document.body.style.getPropertyValue("--background")) ? "css/userhtml.css" : "css/userhtml_light.css");
                             node.contentDocument.head.appendChild(link);
+                            node.addEventListener("load", function () {
+                                node.contentDocument.head.appendChild(link);
+                            });
                         };
 
                         if (node?.className == "settings") {
@@ -411,7 +414,7 @@ function waitForSelector(selector) {
 }
 
 function useDarkBackground(bgColor) {
-    if (!bgColor) { return ''; }
+    if (!bgColor) { return true; }
     return (parseInt(bgColor.replace('#', ''), 16) > 0xffffff / 2) ? false : true;
 }
 
@@ -441,11 +444,12 @@ function changeBackground(value) {
 }
 
 function isSEQTA(title) {
-    if (title.includes("SEQTA Learn") || title.includes("SEQTA Engage")) return true;
-    else return false;
+    if (title.includes("SEQTA Learn") || title.includes("SEQTA Engage") || title.includes("SEQTA Teach")) return true;
+    return false;
 }
 
 function getSEQTAEnvironment(title) {
     if (title.includes("SEQTA Engage")) return 'parent';
-    else return 'student';
+    if (title.includes("SEQTA Teach")) return 'ta';
+    return 'student';
 }
