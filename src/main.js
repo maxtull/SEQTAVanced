@@ -444,12 +444,11 @@ function changeBackground(value) {
 }
 
 function isSEQTA(title) {
-    if (title.includes("SEQTA Learn") || title.includes("SEQTA Engage") || title.includes("SEQTA Teach")) return true;
-    return false;
+    if (title.includes("SEQTA Learn") || title.includes("SEQTA Engage")) return true;
+    else return false;
 }
 
 function getSEQTAEnvironment(title) {
     if (title.includes("SEQTA Engage")) return 'parent';
-    if (title.includes("SEQTA Teach")) return 'ta';
-    return 'student';
+    else return 'student';
 }

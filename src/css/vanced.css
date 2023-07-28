@@ -143,8 +143,8 @@
     --primary-text: #ffffff !important;
     --secondary: #6ecefa !important;
     --secondary-text: #ffffff !important;
-    --background: #0c0c0f !important;
     --text: #ffffff !important;
+    --background: #0c0c0f !important;
     --background-opacity: #ffffff05 !important;
     --blue: var(--secondary) !important;
     --green: var(--secondary) !important;
