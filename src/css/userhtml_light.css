@@ -37,7 +37,7 @@ td {
 
 table,
 td {
-    border: 0px solid transparent !important;
+    border: none !important;
 }
 
 .userHTML>div:first-of-type {
