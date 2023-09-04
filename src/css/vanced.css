@@ -280,7 +280,8 @@
 }
 
 #main>div>div.quickbar.below.visible>div>div.actions,
-#main>div>div.quickbar.visible.above>div>div.actions {
+#main>div>div.quickbar.visible.above>div>div.actions,
+#main>.timetablepage>.quickbar .actions {
     background: var(--background-opacity) !important;
 }
 
@@ -480,6 +481,18 @@ ul.magicDelete>li.deleting {
     background: none !important;
 }
 
+.formattedText {
+    background-color: var(--background-opacity) !important;
+}
+
+.legacy-root .uiFileHandler>.note {
+    color: var(--text) !important;
+}
+
+.anyoneSelect.distinguished>.listWrapper>.list>.item.staff {
+    box-shadow: inset 8px 0 var(--secondary) !important;
+}
+
 #menu {
     border-right: none !important;
     background: none !important;
@@ -667,7 +680,7 @@ iframe.userHTML {
 }
 
 .modaliser {
-    background: #000000 !important;
+    background: var(--background) !important;
 }
 
 .legacy-root button,
@@ -1137,6 +1150,10 @@ code.element {
 }
 
 .cke_toolbox {
+    background-color: var(--background-opacity) !important;
+}
+
+.cke_panel {
     background-color: var(--background) !important;
 }
 
