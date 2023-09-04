@@ -67,7 +67,7 @@ const themePresets = [
     },
     {
         name: "Cord",
-        primary: "#5865F2",
+        primary: "#444DAB",
         secondary: "#5865F2",
         background: "#313338",
     },
