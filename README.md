@@ -36,9 +36,10 @@ Planned for future.
 
 # Screenshots
 <div align="center">
-  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/8c4a0e02-f7fb-4ae7-873e-95c94b4b5b6f" width="600">
-  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/7b6536c6-2250-4e6d-91ea-94aaa65caf45" width="600">
-  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/c1faeb1c-3fcb-4950-ae87-e445a3913900" width="600">
+  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/52a28db5-895c-41b7-8988-81e3fec01fef" width="600">
+  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/432ad229-070d-43d4-b067-fa8552ec0bb7" width="600">
+  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/67982027-258d-40aa-9167-aaafecb7286b" width="600">
+  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/10ca49ef-6d47-4dee-9d89-d30d4294a156" width="600">
 </div>
 
 # Legal
