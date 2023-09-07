@@ -367,10 +367,13 @@ document.addEventListener("load", function () {
                         }
 
                         if (node?.className == "uiButton logout") {
-                            if (document.querySelector("#userActions > .seqtavanced-settings")) return;
+                            if (document.querySelector("#userActions > .seqtavanced-shortcut")) return;
                             const button = document.createElement("button");
-                            button.className = "uiButton logout seqtavanced-settings";
-                            button.innerHTML = `<a href="#?page=/settings"><img src="${chrome.runtime.getURL("images/logo.png")}" height="100%" width="100%"></img></a>`;
+                            button.className = "uiButton logout seqtavanced-shortcut";
+                            button.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16"><path d="M 14.261 13.886 C 9.965 13.886 9.175 13.956 6.996 13.713 C 3.827 13.187 1.568 9.564 2.554 6.492 C 3.278 4.444 5.061 2.74 7.195 2.255 C 9.346 1.827 11.646 2.869 12.855 4.678 C 13.76 6.008 14.349 7.743 13.818 9.331 C 13.492 10.327 12.678 11.554 11.947 12.311"/></svg>`;
+                            button.onclick = function () {
+                                window.location.href = "#?page=/settings";
+                            };
                             document.querySelector("#userActions").appendChild(button);
                         }
                     });

@@ -111,6 +111,20 @@
     height: 100% !important;
 }
 
+.seqtavanced-shortcut>svg {
+    width: 20px !important;
+    height: 20px !important;
+    fill: none !important;
+    stroke: currentcolor !important;
+}
+
+.waitWindow svg path,
+.seqtavanced-shortcut>svg path {
+    stroke-linecap: square !important;
+    stroke-width: 4px !important;
+    stroke: url(#Gradient) !important;
+}
+
 .seqtavanced-branding {
     display: flex !important;
     align-items: center !important;
@@ -252,7 +266,7 @@
     border: none !important;
 }
 
-#userActions>.seqtavanced-settings {
+#userActions>.seqtavanced-shortcut {
     margin-right: 6px !important;
     order: 1 !important;
 }
@@ -1217,6 +1231,8 @@ code.element {
 .waitWindow {
     background: var(--background) !important;
     color: var(--secondary) !important;
+    box-shadow: 0 4px 8px var(--background-opacity) !important;
+    border-radius: 10px !important;
 }
 
 .calendar.container {
@@ -1231,6 +1247,7 @@ ul.uiSplitButtonList,
 .contactFormPanel {
     border: 4px solid var(--background-opacity) !important;
     background: var(--background) !important;
+    border-radius: 4px !important;
 }
 
 .forumView>.forumGreeting>.forumGreetingWrapper,
@@ -1294,7 +1311,8 @@ ul.uiSplitButtonList,
 }
 
 .dashlet-summary-pastoral>.summary>.tableWrapper>table>tbody>tr>td,
-.dashlet-notes>ul>li {
+.dashlet-notes>ul>li,
+#main>.goals>.student>.items>table tbody td {
     border-bottom: 1px dotted var(--background-opacity) !important;
 }
 
@@ -1311,4 +1329,13 @@ ul.uiSplitButtonList,
 #main>.settings h2:not(.seqtavanced-branding h2) {
     color: var(--text) !important;
     opacity: 0.6 !important;
+}
+
+.waitWindow>svg {
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.waitWindow svg path {
+    d: path("M 14.261 13.886 C 9.965 13.886 9.175 13.956 6.996 13.713 C 3.827 13.187 1.568 9.564 2.554 6.492 C 3.278 4.444 5.061 2.74 7.195 2.255 C 9.346 1.827 11.646 2.869 12.855 4.678 C 13.76 6.008 14.349 7.743 13.818 9.331 C 13.492 10.327 12.678 11.554 11.947 12.311") !important;
 }
