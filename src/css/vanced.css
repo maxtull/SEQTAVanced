@@ -271,9 +271,9 @@
     order: 1 !important;
 }
 
-.login>.auth label>input,
 #main>.notices>.notice>.contents {
     background: var(--background-opacity) !important;
+    border-radius: 0 0 8px 8px !important;
 }
 
 #main>.timetablepage>.quickbar>.wrapper:before,
@@ -290,7 +290,7 @@
     height: calc(100% + 4px);
     z-index: -1;
     animation: timetable 20s linear infinite;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 #main>div>div.quickbar.below.visible>div>div.actions,
@@ -341,7 +341,7 @@ html {
 #main>.timetablepage>.quickbar>.wrapper,
 .entry {
     background: var(--background) !important;
-    border-radius: 4px !important;
+    border-radius: 8px !important;
 }
 
 @keyframes timetable {
@@ -650,7 +650,6 @@ iframe.userHTML {
 .legacy-root .input,
 .legacy-root select {
     border: solid 1px var(--background-opacity) !important;
-    border-radius: 4px !important;
 }
 
 #toolbar input {
@@ -677,6 +676,8 @@ iframe.userHTML {
 #main>.reports>.item {
     height: calc(220px * 1.5) !important;
     width: calc(200px * 1.5) !important;
+    border-radius: 8px !important;
+    background-color: var(--background-opacity) !important;
 }
 
 #main>.reports>.item>.report>.year,
@@ -691,6 +692,7 @@ iframe.userHTML {
 
 #main>.notices>.notice>h2::before {
     background: linear-gradient(90deg, var(--secondary), var(--primary)) !important;
+    border-radius: 8px 8px 0 0 !important;
 }
 
 .modaliser {
@@ -705,7 +707,7 @@ iframe.userHTML {
 .notifications__list___rp2L2 {
     border: 4px solid var(--background-opacity) !important;
     background: var(--background) !important;
-    border-radius: 4px !important;
+    border-radius: 8px !important;
 }
 
 .notifications__actions___1UX7r {
@@ -719,7 +721,7 @@ iframe.userHTML {
 
 .notifications__item___2ErJN {
     margin: 0px 0px 4px 0px !important;
-    border-radius: 4px !important;
+    border-radius: 8px !important;
 }
 
 .dashlet-notes>ul {
@@ -770,15 +772,15 @@ a:not(.resource) {
 }
 
 .login {
-    background: #040406 !important;
+    background: var(--background) !important;
 }
 
 .login>.auth {
-    background: rgba(0, 0, 0, 0.5) !important;
+    background: var(--background-opacity) !important;
 }
 
 .login::after {
-    background: linear-gradient(to top left, rgba(0, 0, 0, 0.5) 50%, transparent calc(50% + 1px)) !important;
+    background: linear-gradient(to top left, var(--background-opacity) 50%, transparent calc(50% + 1px)) !important;
 }
 
 .legacy-root {
@@ -1218,6 +1220,7 @@ code.element {
 
 #main>.notices>.notice {
     background: var(--background-opacity) !important;
+    border-radius: 0 0 8px 8px !important;
 }
 
 .Message__Message___3oJaU>.uiFrameWrapper .iframeWrapper {
@@ -1237,6 +1240,7 @@ code.element {
 
 .calendar.container {
     background: var(--background) !important;
+    border-radius: 8px !important;
 }
 
 ul.singleSelect,
@@ -1247,7 +1251,7 @@ ul.uiSplitButtonList,
 .contactFormPanel {
     border: 4px solid var(--background-opacity) !important;
     background: var(--background) !important;
-    border-radius: 4px !important;
+    border-radius: 8px !important;
 }
 
 .forumView>.forumGreeting>.forumGreetingWrapper,
@@ -1338,4 +1342,14 @@ ul.uiSplitButtonList,
 
 .waitWindow svg path {
     d: path("M 14.261 13.886 C 9.965 13.886 9.175 13.956 6.996 13.713 C 3.827 13.187 1.568 9.564 2.554 6.492 C 3.278 4.444 5.061 2.74 7.195 2.255 C 9.346 1.827 11.646 2.869 12.855 4.678 C 13.76 6.008 14.349 7.743 13.818 9.331 C 13.492 10.327 12.678 11.554 11.947 12.311") !important;
+}
+
+.login>.auth button,
+.login>.auth label>input {
+    background: var(--background) !important;
+    border-radius: 8px !important;
+}
+
+.login>.auth button>svg path {
+    fill: var(--text) !important;
 }
