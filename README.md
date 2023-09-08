@@ -25,6 +25,7 @@
 ✨ Modern UI \
 🌙 Dark Mode \
 🎨 Custom Themes \
+🌃 Custom Backgrounds \
 💻 Works with SEQTA Learn & Engage \
 ✅ Open-Source 
 

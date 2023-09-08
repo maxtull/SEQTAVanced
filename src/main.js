@@ -166,12 +166,13 @@ document.addEventListener("load", function () {
           </svg>`;
             document.querySelector("#menu").prepend(logoElement);
 
-            chrome.storage.local.get(null, function ({ primaryTheme, secondaryTheme, backgroundTheme }) {
+            chrome.storage.local.get(null, function ({ primaryTheme, secondaryTheme, backgroundTheme, backgroundImage }) {
                 document.body.style.setProperty("--primary", primaryTheme || themePresets[0].primary);
                 document.body.style.setProperty("--secondary", secondaryTheme || themePresets[0].secondary);
                 document.body.style.setProperty("--primary-text", useDark(primaryTheme || themePresets[0].primary) ? "#fff" : "#000");
                 document.body.style.setProperty("--secondary-text", useDark(secondaryTheme || themePresets[0].secondary) ? "#fff" : "#000");
                 document.body.style.setProperty("--background", backgroundTheme || themePresets[0].background);
+                changeBackgroundImage(backgroundImage);
                 changeBackground(backgroundTheme || themePresets[0].background);
             });
         });
@@ -223,9 +224,9 @@ document.addEventListener("load", function () {
                                 </a>
                             </div>
                             <div class="seqtavanced-legal">
-                            This extension is not affiliated with SEQTA or Education Horizons.
-                            <br>
-                            All trademarks referenced herein are the properties of their respective owners.
+                                <i>This extension is not affiliated with SEQTA or Education Horizons.</i>
+                                <br>
+                                <i>All trademarks referenced herein are the properties of their respective owners.</i>
                             </div>
                             <h2>Theme Settings</h2>
                             <div class="theme">
@@ -246,6 +247,11 @@ document.addEventListener("load", function () {
                                     <input id="backgroundTheme" type="color" class="selector"></input>
                                 </div>
                             </div>
+                            <div class="theme">
+                                <label>Background Image (BETA)</label>
+                                <div class="background"></div>
+                            </div>
+                            <small><i>Background images are currently in beta and may not work as expected.</i></small>
                             <h2 class="preSpaced">Theme Presets</h2>
                             <div class="presets">
                             </div>`
@@ -255,6 +261,41 @@ document.addEventListener("load", function () {
                             const primaryTheme = document.getElementById("primaryTheme");
                             const secondaryTheme = document.getElementById("secondaryTheme");
                             const backgroundTheme = document.getElementById("backgroundTheme");
+                            const backgroundImage = document.querySelector(".theme > .background");
+
+                            const upload = document.createElement("button");
+                            upload.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                          </svg>`;
+                            backgroundImage.appendChild(upload);
+
+                            upload.addEventListener("click", function () {
+                                const input = document.createElement("input");
+                                input.type = "file";
+                                input.accept = "image/*";
+                                input.click();
+                                input.addEventListener("change", function () {
+                                    const file = input.files[0];
+                                    const reader = new FileReader();
+                                    reader.readAsDataURL(file);
+                                    reader.onload = function () {
+                                        changeBackgroundImage(reader.result);
+                                        chrome.storage.local.set({ backgroundImage: reader.result });
+                                    };
+                                });
+                            });
+
+                            const reset = document.createElement("button");
+                            reset.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                          </svg>`;
+                            backgroundImage.appendChild(reset);
+
+                            reset.addEventListener("click", function () {
+                                chrome.storage.local.set({ backgroundImage: null });
+                                changeBackgroundImage(null);
+                            });
 
                             chrome.storage.local.get(null, function (response) {
                                 const userThemes = response.themePresets || [];
@@ -438,6 +479,15 @@ function useDark(color) {
     const c_b = parseInt(hex.substr(4, 2), 16);
     const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
     return brightness < 183;
+}
+
+function changeBackgroundImage(value) {
+    if (value) {
+        document.body.style.setProperty("--background-image", `linear-gradient(to bottom, color-mix(in srgb, var(--background) 90%, transparent), color-mix(in srgb, var(--background) 90%, transparent)), url(${value})`);
+    }
+    else {
+        document.body.style.setProperty("--background-image", "none");
+    }
 }
 
 function changeBackground(value) {

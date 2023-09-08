@@ -152,6 +152,10 @@
     padding: 12px 0 12px !important
 }
 
+.seqtavanced-settings small {
+    opacity: 0.5 !important;
+}
+
 .seqtavanced-about {
     margin: 8px 0 !important;
 }
@@ -168,6 +172,7 @@
     --text: #ffffff !important;
     --background: #0c0c0f !important;
     --background-opacity: #ffffff05 !important;
+    --background-image: none !important;
     --blue: var(--secondary) !important;
     --green: var(--secondary) !important;
     --orange: var(--primary) !important;
@@ -241,6 +246,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#main>.settings>.seqtavanced-settings>.theme>.background button {
+    fill: var(--text);
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px 0 0;
 }
 
 #main>.settings>.seqtavanced-settings>.presets>.preset>.delete {
@@ -455,6 +467,7 @@ div.title {
 body:not(.cke_editable) {
     color: var(--text) !important;
     background-color: var(--background) !important;
+    background-image: var(--background-image) !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -1352,4 +1365,8 @@ ul.uiSplitButtonList,
 
 .login>.auth button>svg path {
     fill: var(--text) !important;
+}
+
+#menuToggle {
+    top: 3px !important;
 }
