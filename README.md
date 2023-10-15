@@ -1,4 +1,3 @@
-
 <div align="center">
 
   <a href="https://github.com/fnleaksandinfo/SEQTAVanced">
@@ -19,6 +18,7 @@
     ·
     <a href="https://github.com/fnleaksandinfo/SEQTAVanced/issues">Report Bug</a>
   </p>
+
 </div>
 
 # Features
