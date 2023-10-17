@@ -232,7 +232,7 @@ document.addEventListener("load", function () {
             const observer = new MutationObserver(function (mutations) {
                 mutations.forEach(function (mutation) {
                     mutation.addedNodes.forEach(function (node) {
-                        if ((node?.className && node?.className?.includes("userHTML")) || node?.className == "cke_wysiwyg_frame cke_reset") {
+                        if (node && node?.className && (node?.className?.toString()?.includes("userHTML") || node?.className == "cke_wysiwyg_frame cke_reset")) {
                             const link = document.createElement("link");
                             link.rel = "stylesheet";
                             link.type = "text/css";

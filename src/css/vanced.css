@@ -725,10 +725,11 @@ iframe.userHTML {
 
 .notifications__actions___1UX7r {
     background: var(--background-opacity) !important;
+    margin-bottom: -4px !important;
 }
 
 .notifications__items___2hCdv {
-    border-bottom: solid 1px #ffffff05 !important;
+    border-bottom: none !important;
     background: var(--background-opacity) !important;
 }
 
@@ -1369,4 +1370,27 @@ ul.uiSplitButtonList,
 
 #menuToggle {
     top: 3px !important;
+}
+
+.MessageList__MessageList___3DxoC>ol>li.MessageList__unread___3imtO {
+    box-shadow: inset 4px 0 var(--background-opacity) !important;
+    background: var(--background-opacity) !important;
+}
+
+.uiFileList {
+    margin-bottom: -4px !important;
+}
+
+ul,
+.legacy-root ul,
+.legacy-root ol {
+    padding: 0 !important;
+}
+
+#main>.dashboard>.dashlet>.message {
+    background: var(--background-opacity) !important;
+}
+
+#main>.dashboard>.dashlet>.header {
+    border-bottom: 1px solid var(--background-opacity) !important;
 }
