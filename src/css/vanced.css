@@ -122,7 +122,7 @@
 .seqtavanced-shortcut>svg path {
     stroke-linecap: square !important;
     stroke-width: 4px !important;
-    stroke: url(#Gradient) !important;
+    stroke: url(#gradient) !important;
 }
 
 .seqtavanced-branding {
@@ -1393,4 +1393,19 @@ ul,
 
 #main>.dashboard>.dashlet>.header {
     border-bottom: 1px solid var(--background-opacity) !important;
+}
+
+.BasicPanel__BasicPanel___1GP6s>ol>li {
+    background: var(--background-opacity) !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    margin-bottom: 8px !important;
+}
+
+.BasicPanel__BasicPanel___1GP6s>ol>li:last-child {
+    margin-bottom: 0px !important;
+}
+
+.BasicPanel__BasicPanel___1GP6s {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.2) !important;
 }
