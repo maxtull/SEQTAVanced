@@ -9,7 +9,6 @@
         "512": "images/logo.png"
     },
     "permissions": [
-        "tabs",
         "storage"
     ],
     "content_scripts": [
