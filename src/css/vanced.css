@@ -99,7 +99,7 @@
 }
 
 .seqtavanced-settings>.preSpaced {
-    margin: 48px 0 0 !important;
+    margin: 26px 0 0 !important;
 }
 
 .seqtavanced-settings>.seqtavanced-branding>a,
@@ -147,13 +147,13 @@
 }
 
 .seqtavanced-legal {
-    opacity: 0.5 !important;
+    opacity: 0.6 !important;
     font-size: smaller !important;
     padding: 12px 0 12px !important
 }
 
 .seqtavanced-settings small {
-    opacity: 0.5 !important;
+    opacity: 0.6 !important;
 }
 
 .seqtavanced-about {
@@ -162,6 +162,97 @@
 
 .seqtavanced-github svg {
     vertical-align: middle !important;
+}
+
+.seqtavanced-animatedbackground>svg {
+    height: 100%;
+    position: absolute;
+}
+
+.bg1 use {
+    -webkit-animation: move-forever1 14s linear infinite;
+    animation: move-forever1 14s linear infinite;
+    -webkit-animation-delay: -2s;
+    animation-delay: -2s
+}
+
+.bg2 use {
+    -webkit-animation: move-forever2 12s linear infinite;
+    animation: move-forever2 12s linear infinite;
+    -webkit-animation-delay: -2s;
+    animation-delay: -2s
+}
+
+.bg3 {
+    color: var(--background-opacity);
+}
+
+.bg3 use {
+    color: var(--background-opacity);
+    -webkit-animation: move-forever3 10s linear infinite;
+    animation: move-forever3 10s linear infinite;
+    -webkit-animation-delay: -2s;
+    animation-delay: -2s
+}
+
+@-webkit-keyframes move-forever1 {
+    0% {
+        transform: translate(85px, 0%)
+    }
+
+    100% {
+        transform: translate(-90px, 0%)
+    }
+}
+
+@keyframes move-forever1 {
+    0% {
+        transform: translate(85px, 0%)
+    }
+
+    100% {
+        transform: translate(-90px, 0%)
+    }
+}
+
+@-webkit-keyframes move-forever2 {
+    0% {
+        transform: translate(-90px, 0%)
+    }
+
+    100% {
+        transform: translate(85px, 0%)
+    }
+}
+
+@keyframes move-forever2 {
+    0% {
+        transform: translate(-90px, 0%)
+    }
+
+    100% {
+        transform: translate(85px, 0%)
+    }
+}
+
+@-webkit-keyframes move-forever3 {
+    0% {
+        transform: translate(-90px, 0%)
+    }
+
+    100% {
+        transform: translate(85px, 0%)
+    }
+}
+
+@keyframes move-forever3 {
+    0% {
+        transform: translate(-90px, 0%)
+    }
+
+    100% {
+        transform: translate(85px, 0%)
+    }
 }
 
 :root {
@@ -186,8 +277,65 @@
     --theme-offset-bg: 24, 24, 26 !important;
 }
 
+.seqtavanced-switch {
+    position: relative !important;
+    width: 38px !important;
+    margin-left: 4px;
+}
+
+.seqtavanced-switch-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.seqtavanced-switch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    height: 16px;
+    padding: 0;
+    line-height: 16px;
+    border: 0px solid #FFFFFF;
+    border-radius: 20px;
+    background-color: var(--background-opacity);
+    border: 1px solid var(--background-opacity);
+}
+
+.seqtavanced-switch-label:before {
+    content: "";
+    width: 20px;
+    margin: -4px;
+    height: 20px;
+    background: var(--background);
+    position: absolute;
+    right: 22px;
+    border-radius: 20px;
+    transition: 0.3s;
+    border: 2px solid var(--background-opacity);
+}
+
+.seqtavanced-switch-checkbox:checked+.seqtavanced-switch-label .seqtavanced-switch-inner {
+    margin-left: 0;
+}
+
+.seqtavanced-switch-checkbox:checked+.seqtavanced-switch-label {
+    background-color: var(--primary);
+}
+
+.seqtavanced-switch-checkbox:checked+.seqtavanced-switch-label,
+.seqtavanced-switch-checkbox:checked+.seqtavanced-switch-label:before {
+    border-color: var(--primary);
+}
+
+.seqtavanced-switch-checkbox:checked+.seqtavanced-switch-label:before {
+    transition: 0.3s;
+    right: 0px;
+    box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
+}
+
 #main>.settings>.seqtavanced-settings>.theme {
-    margin: 4px 0 0 !important;
+    margin: 6px 0 2px 0 !important;
     display: flex !important;
     align-items: center !important;
 }
@@ -269,12 +417,11 @@
 }
 
 #main>.settings>.seqtavanced-settings>.theme>.color>.selector {
-    margin-left: 8px;
     position: absolute;
     right: -10px;
     top: -10px;
-    width: 56px;
-    height: 56px;
+    width: 40px;
+    height: 40px;
     border: none !important;
 }
 
@@ -665,8 +812,13 @@ iframe.userHTML {
     border: solid 1px var(--background-opacity) !important;
 }
 
+.legacy-root .uiButton {
+    border: solid 1px var(--background-opacity) !important;
+}
+
 #toolbar input {
     background: var(--background-opacity) !important;
+    padding: 6px !important;
 }
 
 .dailycal>.content>.wrapper>.days>tbody>tr>td>.entriesWrapper>.entry[data-yiq='light'],
@@ -1224,7 +1376,8 @@ code.element {
 }
 
 #main>.assessmentsWrapper>.message {
-    background: var(--background-opacity) !important;
+    background: none !important;
+    box-shadow: none !important;
     color: var(--text) !important;
 }
 
@@ -1273,11 +1426,7 @@ ul.uiSplitButtonList,
     background: transparent !important;
 }
 
-.legacy-root input,
-.legacy-root textarea,
-.legacy-root select,
-.legacy-root option,
-.legacy-root .input {
+.legacy-root option {
     background: var(--background) !important;
 }
 
@@ -1308,14 +1457,12 @@ ul.uiSplitButtonList,
 
 .MenuButton__MenuPanel___2q42B {
     background: var(--background) !important;
+    color: var(--text) !important;
+    border-radius: 8px !important;
 }
 
 .LegacyModuleBody__LegacyModule___20YE2 {
     background: var(--background) !important;
-}
-
-.MenuButton__MenuPanel___2q42B {
-    color: var(--text) !important;
 }
 
 .Message__Message___3oJaU>header,
@@ -1325,7 +1472,7 @@ ul.uiSplitButtonList,
 .MessageList__MessageList___3DxoC>ol>li,
 .dashlet-summary-pastoral>.summary>table.header>thead>tr>td,
 .dashlet-summary-pastoral>.summary>table.footer>tfoot>tr>td {
-    border-bottom: 1px solid var(--background-opacity) !important;
+    border-bottom: 1px solid #ffffff05 !important;
 }
 
 .dashlet-summary-pastoral>.summary>.tableWrapper>table>tbody>tr>td,
@@ -1408,4 +1555,26 @@ ul,
 
 .BasicPanel__BasicPanel___1GP6s {
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.2) !important;
+}
+
+.Rubric__Rubric___2AAKS>.Rubric__line___JCC3Y>.Rubric__descriptor___2zo2S {
+    color: var(--text) !important;
+}
+
+.uiFileHandlerPanel {
+    background: var(--background) !important;
+}
+
+.gallery>.items>.item {
+    background: var(--background-opacity) !important;
+}
+
+.resourceBrowser .searchConfig {
+    background: var(--background) !important;
+    border: none !important;
+    border-radius: 8px !important;
+}
+
+.searchConfig>.sources>.source {
+    background: var(--background-opacity) !important;
 }

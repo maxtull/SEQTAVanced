@@ -184,7 +184,7 @@ document.addEventListener("load", function () {
             </svg>`;
             document.querySelector("#menu").prepend(logoElement);
 
-            chrome.storage.local.get(null, function ({ primaryTheme, secondaryTheme, backgroundTheme, backgroundImage }) {
+            chrome.storage.local.get(null, function ({ primaryTheme, secondaryTheme, backgroundTheme, backgroundImage, animatedBackground }) {
                 document.body.style.setProperty("--primary", primaryTheme || themePresets[0].primary);
                 document.body.style.setProperty("--secondary", secondaryTheme || themePresets[0].secondary);
                 document.body.style.setProperty("--primary-text", useDark(primaryTheme || themePresets[0].primary) ? "#fff" : "#000");
@@ -192,6 +192,7 @@ document.addEventListener("load", function () {
                 document.body.style.setProperty("--background", backgroundTheme || themePresets[0].background);
                 changeBackgroundImage(backgroundImage);
                 changeBackground(backgroundTheme || themePresets[0].background);
+                toggleAnimatedBackground(animatedBackground);
             });
         });
 
@@ -246,7 +247,7 @@ document.addEventListener("load", function () {
                                 <br>
                                 <i>All trademarks referenced herein are the properties of their respective owners.</i>
                             </div>
-                            <h2>Theme Settings</h2>
+                            <h2>Theme Colours</h2>
                             <div class="theme">
                                 <label>Primary Colour</label>
                                 <div class="color">
@@ -265,11 +266,19 @@ document.addEventListener("load", function () {
                                     <input id="backgroundTheme" type="color" class="selector"></input>
                                 </div>
                             </div>
+                            <h2 class="preSpaced">Background Settings</h2>
                             <div class="theme">
-                                <label>Background Image (BETA)</label>
+                                <label>Animated Background</label>
+                                <div class="seqtavanced-switch">
+                                    <input class="seqtavanced-switch-checkbox" type="checkbox" id="animatedBackground">
+                                    <label for="animatedBackground" class="seqtavanced-switch-label"></label>
+                                </div>
+                            </div>
+                            <div class="theme">
+                                <label>Background Image</label>
                                 <div class="background"></div>
                             </div>
-                            <small><i>Background images are currently in beta and may not work as expected.</i></small>
+                            <small>Background images are currently in beta and may not work as expected.</small>
                             <h2 class="preSpaced">Theme Presets</h2>
                             <div class="presets">
                             </div>`
@@ -279,6 +288,8 @@ document.addEventListener("load", function () {
                             const primaryTheme = document.getElementById("primaryTheme");
                             const secondaryTheme = document.getElementById("secondaryTheme");
                             const backgroundTheme = document.getElementById("backgroundTheme");
+
+                            const animatedBackground = document.getElementById("animatedBackground");
                             const backgroundImage = document.querySelector(".theme > .background");
 
                             const upload = document.createElement("button");
@@ -316,6 +327,11 @@ document.addEventListener("load", function () {
                             });
 
                             chrome.storage.local.get(null, function (response) {
+                                primaryTheme.value = response.primaryTheme || themePresets[0].primary;
+                                secondaryTheme.value = response.secondaryTheme || themePresets[0].secondary;
+                                backgroundTheme.value = response.backgroundTheme || themePresets[0].background;
+                                animatedBackground.checked = response.animatedBackground || false;
+
                                 const userThemes = response.themePresets || [];
                                 themePresets.forEach((preset) => createThemePreset(preset));
                                 userThemes.forEach((preset) => createThemePreset(preset, true));
@@ -344,10 +360,6 @@ document.addEventListener("load", function () {
                                     chrome.storage.local.set({ themePresets: userThemes });
                                 });
 
-                                primaryTheme.value = response.primaryTheme || themePresets[0].primary;
-                                secondaryTheme.value = response.secondaryTheme || themePresets[0].secondary;
-                                backgroundTheme.value = response.backgroundTheme || themePresets[0].background;
-
                                 primaryTheme.addEventListener("input", function () {
                                     document.body.style.setProperty("--primary", primaryTheme.value);
                                     document.body.style.setProperty("--primary-text", useDark(primaryTheme.value) ? "#fff" : "#000");
@@ -361,6 +373,11 @@ document.addEventListener("load", function () {
                                 backgroundTheme.addEventListener("input", function () {
                                     changeBackground(backgroundTheme.value);
                                     document.body.style.setProperty("--background", backgroundTheme.value);
+                                });
+
+                                animatedBackground.addEventListener("change", function () {
+                                    toggleAnimatedBackground(animatedBackground.checked);
+                                    chrome.storage.local.set({ animatedBackground: animatedBackground.checked });
                                 });
 
                                 primaryTheme.addEventListener("change", function () {
@@ -532,4 +549,34 @@ function isSEQTA(title) {
 function getSEQTAEnvironment(title) {
     if (title.includes("SEQTA Engage")) return 'parent';
     else return 'student';
+}
+
+function toggleAnimatedBackground(enabled = false) {
+    const container = document.getElementById("container");
+    if (!container) return;
+
+    const animatedBackground = container.querySelector(".seqtavanced-animatedbackground");
+    if (enabled && !animatedBackground) {
+        const animatedBackground = document.createElement("div");
+        animatedBackground.className = "seqtavanced-animatedbackground";
+        animatedBackground.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 22 60 28" preserveAspectRatio="none">
+            <defs>
+                <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+            </path></defs>
+            <g class="bg1">
+                <use xlink:href="#wave-path" x="50" y="3" style="fill: var(--background-opacity);">
+            </use></g>
+            <g class="bg2">
+                <use xlink:href="#wave-path" x="50" y="0" style="fill: var(--background-opacity);">
+            </use></g>
+            <g class="bg3">
+                <use xlink:href="#wave-path" x="50" y="9" style="fill: var(--background-opacity);">
+            </use></g>
+        </svg>`
+
+        container.prepend(animatedBackground);
+    }
+    else if (!enabled && animatedBackground) {
+        animatedBackground.remove();
+    }
 }
