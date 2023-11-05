@@ -38,10 +38,14 @@ Planned for future.
 
 # Screenshots
 <div align="center">
-  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/52a28db5-895c-41b7-8988-81e3fec01fef" width="600">
-  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/432ad229-070d-43d4-b067-fa8552ec0bb7" width="600">
-  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/67982027-258d-40aa-9167-aaafecb7286b" width="600">
-  <img src="https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/10ca49ef-6d47-4dee-9d89-d30d4294a156" width="600">
+
+  ![backgrounds](https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/c1bf8432-bdfd-4b05-88ef-7b60ac4e5329)
+  ![timetable](https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/a0ab8c09-1ac9-444a-8a7c-345f8dbebb6b)
+  ![themes](https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/4c4513ae-6217-4e25-86ef-1bf0a1cde6d9)
+  ![dark](https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/b8e1b07f-ecc1-40da-a9b8-33ad63e66f8c)
+  ![settings](https://github.com/fnleaksandinfo/SEQTAVanced/assets/47879795/a96695f8-8283-4c6f-b69a-7d96b33752e5)
+  
+
 </div>
 
 # Legal
