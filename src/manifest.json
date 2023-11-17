@@ -1,6 +1,6 @@
 {
     "name": "SEQTA Vanced",
-    "version": "1.1.9",
+    "version": "1.2.0",
     "description": "An advanced and powerful extension that provides dark-mode and custom themes for SEQTA.",
     "manifest_version": 3,
     "icons": {
@@ -14,7 +14,9 @@
     "content_scripts": [
         {
             "matches": [
-                "https://*.edu.au/*"
+                "https://*.edu.au/*",
+                "https://*.com/*",
+                "https://*.com.au/*"
             ],
             "js": [
                 "main.js"
@@ -31,7 +33,9 @@
                 "fonts/*.ttf"
             ],
             "matches": [
-                "https://*.edu.au/*"
+                "https://*.edu.au/*",
+                "https://*.com/*",
+                "https://*.com.au/*"
             ],
             "extension_ids": []
         }
