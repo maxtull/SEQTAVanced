@@ -34,7 +34,7 @@
 The latest version of SEQTA Vanced can be installed from the Chrome Web Store. **[Click here to view.](https://chrome.google.com/webstore/detail/seqta-vanced/kekoobmbfdkempioiihnepdnapdpdaok)**
 
 # Install (Firefox)
-Planned for future.
+The latest version of SEQTA Vanced can be installed from Firefox Add-ons. **[Click here to view.](https://addons.mozilla.org/en-US/firefox/addon/seqta-vanced/)**
 
 # Screenshots
 <div align="center">
