@@ -265,6 +265,7 @@
     --background: #0c0c0f !important;
     --background-opacity: #ffffff05 !important;
     --background-image: none !important;
+    --timetable-background: repeating-linear-gradient(45deg, var(--secondary) 0%, var(--primary), var(--secondary) 50%);
     --blue: var(--secondary) !important;
     --green: var(--secondary) !important;
     --orange: var(--primary) !important;
@@ -335,20 +336,20 @@
     box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
 }
 
-#main>.settings>.seqtavanced-settings>.theme {
+#main>.settings>.seqtavanced-settings>.item {
     margin: 6px 0 2px 0 !important;
     display: flex !important;
     align-items: center !important;
 }
 
-#main>.settings>.seqtavanced-settings>.theme>label {
+#main>.settings>.seqtavanced-settings>.item>label {
     display: inline-block !important;
     margin: 0 1ex 0 0 !important;
     padding: 0 !important;
     vertical-align: middle !important;
 }
 
-#main>.settings>.seqtavanced-settings>.theme>.color {
+#main>.settings>.seqtavanced-settings>.item>.color {
     display: flex;
     vertical-align: middle;
     position: relative;
@@ -397,7 +398,7 @@
     justify-content: center;
 }
 
-#main>.settings>.seqtavanced-settings>.theme>.background button {
+#main>.settings>.seqtavanced-settings>.item>.background button {
     fill: var(--text);
     align-items: center;
     justify-content: center;
@@ -417,7 +418,7 @@
     z-index: 1;
 }
 
-#main>.settings>.seqtavanced-settings>.theme>.color>.selector {
+#main>.settings>.seqtavanced-settings>.item>.color>.selector {
     position: absolute;
     right: -10px;
     top: -10px;
@@ -437,20 +438,45 @@
 }
 
 #main>.timetablepage>.quickbar>.wrapper:before,
-#main>.timetablepage>.quickbar>.wrapper:after,
-.entry:before,
-.entry:after {
+#main>.timetablepage>.quickbar>.wrapper:after {
     content: '';
     position: absolute;
     left: -2px;
     top: -2px;
-    background: linear-gradient(45deg, var(--secondary), var(--primary), var(--secondary), var(--primary), var(--secondary), var(--primary));
-    background-size: 400%;
+    background: var(--timetable-background);
+    background-size: 200% 200%;
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     z-index: -1;
-    animation: timetable 20s linear infinite;
+    animation: timetable 2s linear infinite;
     border-radius: 8px;
+}
+
+#main>.timetablepage>.quickbar {
+    border: none !important;
+}
+
+#main>.timetablepage>.quickbar>.wrapper {
+    background: var(--background) !important;
+    border-radius: 8px !important;
+}
+
+@keyframes timetable {
+    0% {
+        background-position: bottom left;
+    }
+
+    100% {
+        background-position: top right;
+    }
+}
+
+#main>.timetablepage>.quickbar>.animated:after {
+    filter: blur(30px) !important;
+}
+
+#main>.timetablepage>.quickbar .attendance {
+    border-radius: 100% 0 8px !important;
 }
 
 #main>div>div.quickbar.below.visible>div>div.actions,
@@ -496,31 +522,6 @@ html {
     overflow: scroll !important;
     overflow-x: hidden !important;
     font-family: 'SF Text', 'roboto', sans-serif !important;
-}
-
-#main>.timetablepage>.quickbar>.wrapper,
-.entry {
-    background: var(--background) !important;
-    border-radius: 8px !important;
-}
-
-@keyframes timetable {
-    0% {
-        background-position: 0 0;
-    }
-
-    50% {
-        background-position: 400% 0;
-    }
-
-    100% {
-        background-position: 0 0;
-    }
-}
-
-#main>.timetablepage>.quickbar>.wrapper:after,
-.entry:after {
-    filter: blur(30px) !important;
 }
 
 .legacy-root,
@@ -710,10 +711,6 @@ ul.magicDelete>li.deleting {
 
 #main>.dashboard>.dashlet {
     background: var(--background-opacity) !important;
-}
-
-#main>.timetablepage>.quickbar {
-    border: none !important;
 }
 
 .dashlet-notes>ul>li:hover {

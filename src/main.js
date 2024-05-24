@@ -184,15 +184,16 @@ document.addEventListener("load", function () {
             </svg>`;
             document.querySelector("#menu").prepend(logoElement);
 
-            chrome.storage.local.get(null, function ({ primaryTheme, secondaryTheme, backgroundTheme, backgroundImage, animatedBackground }) {
-                document.body.style.setProperty("--primary", primaryTheme || themePresets[0].primary);
-                document.body.style.setProperty("--secondary", secondaryTheme || themePresets[0].secondary);
-                document.body.style.setProperty("--primary-text", useDark(primaryTheme || themePresets[0].primary) ? "#fff" : "#000");
-                document.body.style.setProperty("--secondary-text", useDark(secondaryTheme || themePresets[0].secondary) ? "#fff" : "#000");
-                document.body.style.setProperty("--background", backgroundTheme || themePresets[0].background);
-                changeBackgroundImage(backgroundImage);
-                changeBackground(backgroundTheme || themePresets[0].background);
-                toggleAnimatedBackground(animatedBackground);
+            chrome.storage.local.get(null, function (data) {
+                document.body.style.setProperty("--primary", data?.primaryTheme || themePresets[0].primary);
+                document.body.style.setProperty("--secondary", data?.secondaryTheme || themePresets[0].secondary);
+                document.body.style.setProperty("--primary-text", useDark(data?.primaryTheme || themePresets[0].primary) ? "#fff" : "#000");
+                document.body.style.setProperty("--secondary-text", useDark(data?.secondaryTheme || themePresets[0].secondary) ? "#fff" : "#000");
+                document.body.style.setProperty("--background", data?.backgroundTheme || themePresets[0].background);
+                document.body.style.setProperty("--timetable-background", `repeating-linear-gradient(45deg, var(--secondary) 0%, var(--primary), var(--secondary) 50%)`);
+                changeBackgroundImage(data?.backgroundImage);
+                changeBackground(data?.backgroundTheme || themePresets[0].background);
+                toggleAnimatedBackground(data?.animatedBackground);
             });
         });
 
@@ -248,37 +249,52 @@ document.addEventListener("load", function () {
                                 <i>All trademarks referenced herein are the properties of their respective owners.</i>
                             </div>
                             <h2>Theme Colours</h2>
-                            <div class="theme">
+                            <div class="item">
                                 <label>Primary Colour</label>
                                 <div class="color">
                                     <input id="primaryTheme" type="color" class="selector"></input>
                                 </div>
                             </div>
-                            <div class="theme">
+                            <div class="item">
                                 <label>Secondary Colour</label>
                                 <div class="color">
                                     <input id="secondaryTheme" type="color" class="selector"></input>
                                 </div>
                             </div>
-                            <div class="theme">
+                            <div class="item">
                                 <label>Background Colour</label>
                                 <div class="color">
                                     <input id="backgroundTheme" type="color" class="selector"></input>
                                 </div>
                             </div>
                             <h2 class="preSpaced">Background Settings</h2>
-                            <div class="theme">
-                                <label>Animated Background</label>
+                            <div class="item">
+                                <label>Background Animated</label>
                                 <div class="seqtavanced-switch">
                                     <input class="seqtavanced-switch-checkbox" type="checkbox" id="animatedBackground">
                                     <label for="animatedBackground" class="seqtavanced-switch-label"></label>
                                 </div>
                             </div>
-                            <div class="theme">
+                            <div class="item">
                                 <label>Background Image</label>
                                 <div class="background"></div>
                             </div>
                             <small>Background images are currently in beta and may not work as expected.</small>
+                            <h2 class="preSpaced">Timetable Settings</h2>
+                            <div class="item">
+                                <label>Animated Glow</label>
+                                <div class="seqtavanced-switch">
+                                    <input class="seqtavanced-switch-checkbox" type="checkbox" id="timetableGlow">
+                                    <label for="timetableGlow" class="seqtavanced-switch-label"></label>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <label>Show Class Colors</label>
+                                <div class="seqtavanced-switch">
+                                    <input class="seqtavanced-switch-checkbox" type="checkbox" id="classColors">
+                                    <label for="classColors" class="seqtavanced-switch-label"></label>
+                                </div>
+                            </div>
                             <h2 class="preSpaced">Theme Presets</h2>
                             <div class="presets">
                             </div>`
@@ -290,7 +306,10 @@ document.addEventListener("load", function () {
                             const backgroundTheme = document.getElementById("backgroundTheme");
 
                             const animatedBackground = document.getElementById("animatedBackground");
-                            const backgroundImage = document.querySelector(".theme > .background");
+                            const backgroundImage = document.querySelector(".item > .background");
+
+                            const timetableGlow = document.getElementById("timetableGlow");
+                            const classColors = document.getElementById("classColors");
 
                             const upload = document.createElement("button");
                             upload.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
@@ -326,13 +345,15 @@ document.addEventListener("load", function () {
                                 changeBackgroundImage(null);
                             });
 
-                            chrome.storage.local.get(null, function (response) {
-                                primaryTheme.value = response.primaryTheme || themePresets[0].primary;
-                                secondaryTheme.value = response.secondaryTheme || themePresets[0].secondary;
-                                backgroundTheme.value = response.backgroundTheme || themePresets[0].background;
-                                animatedBackground.checked = response.animatedBackground || false;
+                            chrome.storage.local.get(null, function (data) {
+                                primaryTheme.value = data.primaryTheme || themePresets[0].primary;
+                                secondaryTheme.value = data.secondaryTheme || themePresets[0].secondary;
+                                backgroundTheme.value = data.backgroundTheme || themePresets[0].background;
+                                animatedBackground.checked = data.animatedBackground ?? false;
+                                timetableGlow.checked = data.timetableGlow ?? true;
+                                classColors.checked = data.classColors ?? false;
 
-                                const userThemes = response.themePresets || [];
+                                const userThemes = data.themePresets || [];
                                 themePresets.forEach((preset) => createThemePreset(preset));
                                 userThemes.forEach((preset) => createThemePreset(preset, true));
 
@@ -378,6 +399,14 @@ document.addEventListener("load", function () {
                                 animatedBackground.addEventListener("change", function () {
                                     toggleAnimatedBackground(animatedBackground.checked);
                                     chrome.storage.local.set({ animatedBackground: animatedBackground.checked });
+                                });
+
+                                timetableGlow.addEventListener("change", function () {
+                                    chrome.storage.local.set({ timetableGlow: timetableGlow.checked });
+                                });
+
+                                classColors.addEventListener("change", function () {
+                                    chrome.storage.local.set({ classColors: classColors.checked });
                                 });
 
                                 primaryTheme.addEventListener("change", function () {
@@ -451,6 +480,32 @@ document.addEventListener("load", function () {
                                 window.location.href = "#?page=/settings";
                             };
                             document.querySelector("#userActions").appendChild(button);
+                        }
+
+                        if (node?.classList && (node?.classList?.contains('quickbar') || node?.classList?.contains('wrapper'))) {
+                            const wrapper = node.querySelector(".wrapper") || node;
+                            chrome.storage.local.get(null, function ({ timetableGlow }) {
+                                if (timetableGlow ?? true) wrapper.classList.add("animated");
+                            });
+
+                            chrome.storage.local.get(null, function ({ classColors }) {
+                                if (classColors) {
+                                    const quickbar = node.classList.contains('quickbar') ? node : node.parentElement;
+                                    if (quickbar && quickbar.style.backgroundColor) {
+                                        quickbar.style.setProperty("--timetable-background", `repeating-linear-gradient(45deg, ${quickbar.style.backgroundColor}, ${quickbar.style.backgroundColor})`);
+                                    }
+                                }
+                            });
+                        }
+
+                        if (node?.classList && (node?.classList?.contains('entry') && node?.classList?.contains('class'))) {
+                            chrome.storage.local.get(null, function ({ classColors }) {
+                                if (classColors) {
+                                    const bgColor = node.style.backgroundColor;
+                                    node.style.setProperty("border-color", bgColor, "important");
+                                    node.style.setProperty("border-image", "none", "important");
+                                }
+                            });
                         }
                     });
                 });
