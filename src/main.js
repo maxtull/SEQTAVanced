@@ -248,51 +248,59 @@ document.addEventListener("load", function () {
                                 <br>
                                 <i>All trademarks referenced herein are the properties of their respective owners.</i>
                             </div>
-                            <h2>Theme Colours</h2>
-                            <div class="item">
-                                <label>Primary Colour</label>
-                                <div class="color">
-                                    <input id="primaryTheme" type="color" class="selector"></input>
+                            <div class="seqtavanced-row">
+                                <div class="seqtavanced-col">
+                                    <h2>Theme Colours</h2>
+                                    <div class="item">
+                                        <label>Primary Colour</label>
+                                        <div class="color">
+                                            <input id="primaryTheme" type="color" class="selector"></input>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <label>Secondary Colour</label>
+                                        <div class="color">
+                                            <input id="secondaryTheme" type="color" class="selector"></input>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <label>Background Colour</label>
+                                        <div class="color">
+                                            <input id="backgroundTheme" type="color" class="selector"></input>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <label>Secondary Colour</label>
-                                <div class="color">
-                                    <input id="secondaryTheme" type="color" class="selector"></input>
+                                <div class="seqtavanced-col">
+                                    <h2>Background Settings</h2>
+                                    <div class="item">
+                                        <label>Animated Background</label>
+                                        <div class="seqtavanced-switch">
+                                            <input class="seqtavanced-switch-checkbox" type="checkbox" id="animatedBackground">
+                                            <label for="animatedBackground" class="seqtavanced-switch-label"></label>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <label>Background Image</label>
+                                        <div class="background"></div>
+                                    </div>
+                                    <small>Files should be less than 2mb in size.</small>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <label>Background Colour</label>
-                                <div class="color">
-                                    <input id="backgroundTheme" type="color" class="selector"></input>
-                                </div>
-                            </div>
-                            <h2 class="preSpaced">Background Settings</h2>
-                            <div class="item">
-                                <label>Background Animated</label>
-                                <div class="seqtavanced-switch">
-                                    <input class="seqtavanced-switch-checkbox" type="checkbox" id="animatedBackground">
-                                    <label for="animatedBackground" class="seqtavanced-switch-label"></label>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <label>Background Image</label>
-                                <div class="background"></div>
-                            </div>
-                            <small>Background images are currently in beta and may not work as expected.</small>
-                            <h2 class="preSpaced">Timetable Settings</h2>
-                            <div class="item">
-                                <label>Animated Glow</label>
-                                <div class="seqtavanced-switch">
-                                    <input class="seqtavanced-switch-checkbox" type="checkbox" id="timetableGlow">
-                                    <label for="timetableGlow" class="seqtavanced-switch-label"></label>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <label>Show Class Colors</label>
-                                <div class="seqtavanced-switch">
-                                    <input class="seqtavanced-switch-checkbox" type="checkbox" id="classColors">
-                                    <label for="classColors" class="seqtavanced-switch-label"></label>
+                                <div class="seqtavanced-col">
+                                    <h2>Timetable Settings</h2>
+                                    <div class="item">
+                                        <label>Animated Glow</label>
+                                        <div class="seqtavanced-switch">
+                                            <input class="seqtavanced-switch-checkbox" type="checkbox" id="timetableGlow">
+                                            <label for="timetableGlow" class="seqtavanced-switch-label"></label>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <label>Show Class Colors</label>
+                                        <div class="seqtavanced-switch">
+                                            <input class="seqtavanced-switch-checkbox" type="checkbox" id="classColors">
+                                            <label for="classColors" class="seqtavanced-switch-label"></label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <h2 class="preSpaced">Theme Presets</h2>

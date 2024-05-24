@@ -129,7 +129,6 @@
     display: flex !important;
     align-items: center !important;
     padding-right: 8px !important;
-    margin-bottom: 8px !important;
 }
 
 .seqtavanced-branding img {
@@ -146,10 +145,28 @@
     font-weight: 700 !important;
 }
 
+.seqtavanced-row {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 680px;
+}
+
+.seqtavanced-col {
+    width: 100%;
+}
+
+@media (min-width: 950px) {
+    .seqtavanced-col {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+}
+
 .seqtavanced-legal {
     opacity: 0.6 !important;
     font-size: smaller !important;
-    padding: 12px 0 12px !important
+    padding-bottom: 10px !important;
 }
 
 .seqtavanced-settings small {
@@ -157,7 +174,7 @@
 }
 
 .seqtavanced-about {
-    margin: 8px 0 !important;
+    padding: 12px 0 !important;
 }
 
 .seqtavanced-github svg {
@@ -336,20 +353,20 @@
     box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
 }
 
-#main>.settings>.seqtavanced-settings>.item {
+#main>.settings>.seqtavanced-settings>* .item {
     margin: 6px 0 2px 0 !important;
     display: flex !important;
     align-items: center !important;
 }
 
-#main>.settings>.seqtavanced-settings>.item>label {
+#main>.settings>.seqtavanced-settings>* .item>label {
     display: inline-block !important;
     margin: 0 1ex 0 0 !important;
     padding: 0 !important;
     vertical-align: middle !important;
 }
 
-#main>.settings>.seqtavanced-settings>.item>.color {
+#main>.settings>.seqtavanced-settings>* .item>.color {
     display: flex;
     vertical-align: middle;
     position: relative;
@@ -358,6 +375,22 @@
     height: 20px;
     border: 2px solid var(--background-opacity);
     border-radius: 20px;
+}
+
+#main>.settings>.seqtavanced-settings>* .item>.color>.selector {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 40px;
+    height: 40px;
+    border: none !important;
+}
+
+#main>.settings>.seqtavanced-settings>* .item>.background button {
+    fill: var(--text);
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px 0 0;
 }
 
 #main>.settings>.seqtavanced-settings>.presets {
@@ -398,13 +431,6 @@
     justify-content: center;
 }
 
-#main>.settings>.seqtavanced-settings>.item>.background button {
-    fill: var(--text);
-    align-items: center;
-    justify-content: center;
-    margin: 0 4px 0 0;
-}
-
 #main>.settings>.seqtavanced-settings>.presets>.preset>.delete {
     position: absolute;
     top: -5px;
@@ -416,15 +442,6 @@
     border: 1px solid rgba(var(--theme-fg-parts), 0.1);
     padding: 4px;
     z-index: 1;
-}
-
-#main>.settings>.seqtavanced-settings>.item>.color>.selector {
-    position: absolute;
-    right: -10px;
-    top: -10px;
-    width: 40px;
-    height: 40px;
-    border: none !important;
 }
 
 #userActions>.seqtavanced-shortcut {
