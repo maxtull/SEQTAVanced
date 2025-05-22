@@ -905,7 +905,6 @@ iframe.userHTML {
 }
 
 html {
-    filter: saturate(1.3) !important;
     color: var(--text) !important;
 }
 

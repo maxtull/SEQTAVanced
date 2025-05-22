@@ -84,6 +84,12 @@ const themePresets = [
         background: "#313338",
     },
     {
+        name: "Minimal",
+        primary: "#26BBFF",
+        secondary: "#26BBFF",
+        background: "#101014",
+    },
+    {
         name: "Terminal",
         primary: "#31f2b2",
         secondary: "#65e2a1",
