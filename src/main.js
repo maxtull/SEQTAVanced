@@ -301,7 +301,7 @@ document.addEventListener("load", function () {
                                     <label for="classColors" class="seqtavanced-switch-label"></label>
                                 </div>
                             </div>
-                            <h2 class="preSpaced">Theme Presets</h2>
+                            <h2 class="preSpaced">Theme Settings</h2>
                             <div class="presets">
                             </div>`
                             node.prepend(div);
