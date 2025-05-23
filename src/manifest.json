@@ -1,6 +1,6 @@
 {
     "name": "SEQTA Vanced",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "description": "An advanced and powerful extension that provides dark-mode and custom themes for SEQTA.",
     "manifest_version": 3,
     "icons": {

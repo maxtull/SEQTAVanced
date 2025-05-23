@@ -1586,3 +1586,7 @@ ul,
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }
+
+[class*="Message__Message___"]>[class*="Message__recipients___"] {
+    padding: 16px 16px 8px !important;
+}
