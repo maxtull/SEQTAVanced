@@ -1,93 +1,4 @@
-@font-face {
-    font-family: "SF Text";
-    font-weight: 700;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-Bold.ttf");
-}
-
-@font-face {
-    font-family: "SF Text";
-    font-weight: 700;
-    font-style: italic;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-BoldItalic.ttf");
-}
-
-@font-face {
-    font-family: "SF Text";
-    font-weight: 800;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-Heavy.ttf");
-}
-
-@font-face {
-    font-family: "SF Text";
-    font-weight: 800;
-    font-style: italic;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-HeavyItalic.ttf");
-}
-
-@font-face {
-    font-family: "SF Text";
-    font-weight: 200;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-Light.ttf");
-}
-
-@font-face {
-    font-family: "SF Text";
-    font-weight: 200;
-    font-style: italic;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-LightItalic.ttf");
-}
-
-@font-face {
-    font-family: "SF Text";
-    font-weight: 500;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-Medium.ttf");
-}
-
-@font-face {
-    font-family: "SF Text";
-    font-weight: 500;
-    font-style: italic;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-MediumItalic.ttf");
-}
-
-@font-face {
-    font-family: "SF Text";
-    font-weight: 400;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-Regular.ttf");
-}
-
-@font-face {
-    font-family: "SF Text";
-    font-weight: 400;
-    font-style: italic;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-RegularItalic.ttf");
-}
-
-@font-face {
-    font-family: "SF Text";
-    font-weight: 600;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-Semibold.ttf");
-}
-
-@font-face {
-    font-family: "SF Text";
-    font-weight: 600;
-    font-style: italic;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-SemiboldItalic.ttf");
-}
-
-@font-face {
-    font-family: "SF Text";
-    font-weight: 100;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-Ultrathin.ttf");
-}
-
-@font-face {
-    font-family: "SF Text";
-    font-weight: 100;
-    font-style: italic;
-    src: url("chrome-extension://__MSG_@@extension_id__/fonts/SFUIText-UltrathinItalic.ttf");
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 .seqtavanced-logo {
     display: flex;
@@ -298,7 +209,7 @@
     height: 16px;
     padding: 0;
     line-height: 16px;
-    border: 0px solid #FFFFFF;
+    border: 1px solid rgba(var(--theme-fg-parts),0.1) !important;
     border-radius: 20px;
     background-color: var(--background-opacity);
     border: 1px solid var(--background-opacity);
@@ -307,14 +218,14 @@
 .seqtavanced-switch-label:before {
     content: "";
     width: 20px;
-    margin: -4px;
+    margin: -3px;
     height: 20px;
     background: var(--background);
     position: absolute;
     right: 22px;
     border-radius: 20px;
     transition: 0.3s;
-    border: 2px solid var(--background-opacity);
+    border: 1px solid rgba(var(--theme-fg-parts),0.1);
 }
 
 .seqtavanced-switch-checkbox:checked+.seqtavanced-switch-label .seqtavanced-switch-inner {
@@ -356,7 +267,7 @@
     overflow: hidden;
     width: 20px;
     height: 20px;
-    border: 2px solid var(--background-opacity);
+    border: 2px solid rgba(var(--theme-fg-parts),0.1);
     border-radius: 20px;
 }
 
@@ -521,12 +432,12 @@
 html {
     overflow: scroll !important;
     overflow-x: hidden !important;
-    font-family: 'SF Text', 'roboto', sans-serif !important;
+    font-family: 'Inter', 'roboto', sans-serif !important;
 }
 
 .legacy-root,
 #main>.goals>.student h2 {
-    font-family: 'SF Text', 'roboto', sans-serif !important;
+    font-family: 'Inter', 'roboto', sans-serif !important;
     color: var(--text) !important;
 }
 
@@ -790,7 +701,7 @@ iframe.userHTML {
 .legacy-root select,
 .legacy-root option,
 .legacy-root .input {
-    font-family: 'SF Text', 'roboto', sans-serif !important;
+    font-family: 'Inter', 'roboto', sans-serif !important;
     color: var(--text) !important;
 }
 
@@ -947,7 +858,7 @@ a:not(.resource) {
 }
 
 .legacy-root {
-    font-family: 'SF Text', 'roboto', sans-serif !important;
+    font-family: 'Inter', 'roboto', sans-serif !important;
 }
 
 .programmeNavigator {
@@ -1589,4 +1500,8 @@ ul,
 
 [class*="Message__Message___"]>[class*="Message__recipients___"] {
     padding: 16px 16px 8px !important;
+}
+
+[class*="Message__Message___"] {
+    box-shadow: none !important;
 }

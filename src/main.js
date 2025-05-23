@@ -72,16 +72,16 @@ const themePresets = [
         background: "#1f1f29",
     },
     {
-        name: "Chirp",
+        name: "Twitter",
         primary: "#156fab",
         secondary: "#1d9Bf0",
         background: "#15202b",
     },
     {
-        name: "Cord",
-        primary: "#444DAB",
+        name: "Discord",
+        primary: "#5865F2",
         secondary: "#5865F2",
-        background: "#313338",
+        background: "#323339",
     },
     {
         name: "Minimal",
@@ -105,7 +105,7 @@ const themePresets = [
         name: "Winter",
         primary: "#64AFB9",
         secondary: "#9CD8F2",
-        background: "#060B0F",
+        background: "#0F181F",
     },
     {
         name: "Serenity",
